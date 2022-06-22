@@ -1,0 +1,60 @@
+h1 {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.card {
+    margin: 1rem;
+}
+
+.button-add {
+    margin-left: 1rem;
+}
+
+.form-filter {
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+}
+
+.mat-column-nome {
+    width: 30%;
+}
+
+.mat-column-empresa {
+    width: 25%;
+}
+
+
+.mat-column-username {
+    width: 20%;
+}
+
+.mat-column-perfis {
+    width: 20%;
+}
+
+.mat-column-acao {
+    width: 5%;
+}
+
+
+.icon-edit {
+    transform: scale(0.7);
+    color: blueviolet;
+    display: inline;
+    cursor: pointer;
+
+}
+
+.icon-delete {
+    transform: scale(0.7);
+    color: red;
+    display: inline;
+    cursor: pointer;
+    margin-left: .4em;
+}

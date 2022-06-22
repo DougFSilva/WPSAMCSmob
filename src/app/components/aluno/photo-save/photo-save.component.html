@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <div *ngIf="!webcamImage" class="webcam">
+      <h2>WEBCAM</h2>
+      <webcam
+        class="webcam-cam"
+        [height]="webCamHeight"
+        [width]="webCamWidth"
+        (imageCapture)="handleImage($event)"
+        [trigger]="triggerObservable"
+        [allowCameraSwitch]="allowCameraSwitch"
+        [switchCamera]="nextWebcamObservable"
+        [imageQuality]="1"
+        (initError)="handleInitError($event)"
+      >
+      </webcam>
+      <button
+        mat-raised-button
+        class="button-webcam-trigger mat-elevation-z4"
+        (click)="triggerSnapshot()"
+      >
+        Tirar foto
+      </button>
+    </div>
+
+    <h2 class="snapshot-title" *ngIf="webcamImage">AJUSTE A FOTO</h2>
+
+    <div class="adjust-image">
+      <div class="snapshot" *ngIf="webcamImage">
+        <img #image [src]="webcamImage.imageAsDataUrl" />
+      </div>
+
+      <div *ngIf="webcamImage" class="img-preview">
+        <!--<img height="auto" width="100%" [src]="imageDestination" />-->
+      </div>
+    </div>
+    <div class="save-btn-block">
+      <button
+        *ngIf="webcamImage"
+        mat-raised-button
+        class="button-save"
+        (click)="saveCroppedImageDialog()"
+      >
+        Salvar
+      </button>
+    </div>
+  </mat-card>
+</div>

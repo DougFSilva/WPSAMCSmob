@@ -1,0 +1,178 @@
+<div class="container">
+  <h1 class="title">DASHBOARD AAPM</h1>
+  <div class="filter">
+    <mat-form-field class="startDate" appearance="legacy">
+      <mat-label>Data inicial</mat-label>
+      <input
+        (change)="applyDateFilter()"
+        [(ngModel)]="startDate"
+        name="startDate"
+        type="date"
+        matInput
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="endDate" appearance="legacy">
+      <mat-label>Data Final</mat-label>
+      <input
+        change="applyDateFilter()"
+        (change)="applyDateFilter()"
+        [(ngModel)]="endDate"
+        name="endtDate"
+        type="date"
+        matInput
+        required
+      />
+    </mat-form-field>
+
+  </div>
+
+
+  <mat-grid-list class="grid" cols="2" rowHeight="10rem" gutterSize=".5rem">
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="1"
+      [style]="{ 'background-color': 'lightgreen' }"
+    >
+      <div class="total-arrecadado">
+        <h2 class="total-arrecadado-key">Total arrecadado</h2>
+        <h1 class="total-arrecadado-value">
+          {{ totalArrecadado | currency: "R$" }}
+        </h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="1"
+      [style]="{ 'background-color': 'lightCoral' }"
+    >
+      <div class="total-investido">
+        <h2 class="total-investido-key">Total investido</h2>
+        <h1 class="total-investido-value">
+          {{ totalInvestido | currency: "R$" }}
+        </h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="1"
+      [style]="{ 'background-color': 'lightSlateGrey' }"
+    >
+      <div class="balanco">
+        <h2 class="balanco-key">Balanço</h2>
+        <h1 class="balanco-value">{{ balanco | currency: "R$" }}</h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style]="{ 'background-color': 'lightSalmon' }"
+    >
+      <div class="pagamentos">
+        <h2 class="pagamentos-key">Pagamentos</h2>
+        <h1 class="pagamentos-value">{{ pagamentos }}</h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style]="{ 'background-color': 'lightSkyBlue' }"
+    >
+      <div class="alunos-pagantes">
+        <h2 class="alunos-pagantes-key">Pagantes</h2>
+        <h1 class="alunos-pagantes-value">{{ alunosPagantes }}</h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="2"
+      [style]="{ 'background-color': 'lightblueviolet' }"
+    >
+      <div #chart style="display: block">
+        <canvas baseChart [data]="semestreChartData" [type]="semestreChartType">
+        </canvas>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="2"
+      [style]="{ 'background-color': 'lightblueviolet' }"
+    >
+      <div style="display: block">
+        <canvas baseChart [data]="pagantesChartData" [type]="pagantesChartType">
+        </canvas>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="chart-pagantes-turma">
+    <div style="display: block">
+      <canvas
+        baseChart
+        [data]="pagantesTurmaChartData"
+        [type]="pagantesTurmaChartType"
+      >
+      </canvas>
+    </div>
+  </div>
+
+  <h1 class="title">INVESTIMENTOS AAPM</h1>
+  <mat-card class="card-table mat-elevation-z8">
+    <div>
+      <button
+        class="table-button-add"
+        mat-raised-button
+        color="primary"
+        (click)="createInvestimentoDialog()"
+      >
+        Novo investimento
+      </button>
+      <mat-form-field class="table-filter" appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. ium"
+          #input
+        />
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.data | date: "dd/MM/yyyy" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="investimento">
+          <th mat-header-cell *matHeaderCellDef>Investimento</th>
+          <td mat-cell *matCellDef="let element">{{ element.investimento }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef>Valor</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.valor | currency: "R$" }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-card>
+</div>

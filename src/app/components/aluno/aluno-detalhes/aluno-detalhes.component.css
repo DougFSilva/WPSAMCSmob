@@ -1,0 +1,84 @@
+.container{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 92%;
+    background-color: rgb(235, 235, 235);
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-header-foto{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.card-aluno-nome {
+    color: blueviolet;
+    font-size: .8rem;
+}
+
+.card-aluno-turma {
+    color: red;
+    font-size: .7rem;
+}
+
+.card-aluno-idade {
+    font-weight: bold;
+    font-size: .7rem;
+}
+
+.card-aluno-empresa {
+    font-weight: bold;
+    font-size: .7rem;
+}
+
+.aluno-foto {
+    height: 10rem;
+    width: auto;
+}
+
+.mat-tab-icon {
+    color: red;
+}
+
+.button-more {
+  margin-top: .3rem;
+  background-color: blueviolet;
+  color: white;
+  width: 100%;
+  align-self: flex-end;
+}
+
+.card-detalhes {
+    margin-top: .3rem;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item-title {
+    color: red;
+    margin-right: .5rem;
+    display: inline;
+    font-size: .8rem;
+}
+
+.list-item-descricao {
+    color: blue;
+    display: inline;
+    font-size: .8rem;
+}

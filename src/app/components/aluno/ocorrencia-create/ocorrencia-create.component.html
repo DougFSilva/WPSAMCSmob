@@ -1,0 +1,80 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <h1 class="form-title">REGISTRAR OCORRÊNCIA</h1>
+    <mat-icon ngClass="form-icon-title">assignment</mat-icon>
+    <form>
+      <mat-form-field ngClass="form-input-tipo" appearance="legacy">
+        <mat-label>Tipo</mat-label>
+        <mat-select
+          [formControl]="tipo"
+          [(ngModel)]="ocorrencia.tipo"
+          name="tipo"
+          required
+        >
+          <mat-option value="FALTA">FALTA</mat-option>
+          <mat-option value="ATRASO">ATRASO</mat-option>
+          <mat-option value="SAIDA_ANTECIPADA">SAÍDA ANTECIPADA</mat-option>
+          <mat-option value="ADVERTENCIA">ADVERTÊNCIA</mat-option>
+          <mat-option value="QUEIXA">QUEIXA</mat-option>
+          <mat-option value="ELOGIO">ELOGIO</mat-option>
+          <mat-option value="OCORRENCIA">OCORRÊNCIA</mat-option>
+          <mat-option value="CRACHA">CRACHÁ</mat-option>
+          <mat-option value="OUTROS">OUTROS</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field ngClass="form-input-descricao" appearance="legacy">
+        <mat-label>Descrição</mat-label>
+        <textarea
+          [formControl]="descricao"
+          [(ngModel)]="ocorrencia.descricao"
+          name="descricao"
+          matInput
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field ngClass="form-input-resolvido" appearance="legacy">
+        <mat-label>Bloqueio</mat-label>
+        <mat-select
+          [formControl]="bloqueio"
+          [(ngModel)]="ocorrencia.bloqueio"
+          name="resolvido"
+        >
+          <mat-option value="false">NÃO</mat-option>
+          <mat-option value="true">SIM</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field ngClass="form-input-privado" appearance="legacy">
+        <mat-label>Privacidade</mat-label>
+        <mat-select
+          [formControl]="privado"
+          [(ngModel)]="ocorrencia.privado"
+          name="privado"
+        >
+          <mat-option value="false">PÚBLICO</mat-option>
+          <mat-option value="true">PRIVADO</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        (click)="createDialog()"
+        [disabled]="!validaCampos()"
+        class="button-registrar mat-elevation-z8"
+        mat-raised-button
+        color="primary"
+      >
+        Cadastrar
+      </button>
+      <button
+        (click)="return()"
+        class="button-cancelar mat-elevation-z8"
+        mat-stroked-button
+        color="warn"
+      >
+        Cancelar
+      </button>
+    </form>
+  </mat-card>
+</div>

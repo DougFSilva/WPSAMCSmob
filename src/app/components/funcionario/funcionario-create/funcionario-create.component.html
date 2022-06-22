@@ -1,0 +1,126 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <form action="" class="form">
+      <h1 class="form-title">CADASTRAR FUNCIONÁRIO</h1>
+      <mat-icon class="icon-person">person_add</mat-icon>
+      <div class="form-container">
+        <mat-form-field class="input-nome" appearance="legacy">
+          <mat-label>Nome</mat-label>
+          <input
+            [(ngModel)]="funcionario.nome"
+            name="nome"
+            [formControl]="nome"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="input-sexo" appearance="legacy">
+          <mat-label>Sexo</mat-label>
+          <mat-select
+            [(ngModel)]="funcionario.sexo"
+            [formControl]="sexo"
+            required
+          >
+            <mat-option value="M"> Masculino </mat-option>
+            <mat-option value="F"> Feminino </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="input-cidade" appearance="legacy">
+          <mat-label>Cidade</mat-label>
+          <input
+            [(ngModel)]="funcionario.cidade"
+            name="cidade"
+            type="text"
+            matInput
+          />
+        </mat-form-field>
+        <mat-form-field class="input-rg" appearance="legacy">
+          <mat-label>Rg</mat-label>
+          <input
+            [(ngModel)]="funcionario.rg"
+            name="rg"
+            [formControl]="rg"
+            type="text"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="input-dataNascimento" appearance="legacy">
+          <mat-label>Data da nascimento</mat-label>
+          <input
+            [(ngModel)]="funcionario.dataNascimento"
+            name="dataNascimento"
+            type="date"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="input-email" appearance="legacy">
+          <mat-label>Email</mat-label>
+          <input
+            [(ngModel)]="funcionario.email"
+            name="email"
+            type="email"
+            matInput
+          />
+        </mat-form-field>
+        <mat-form-field class="input-tel" appearance="legacy">
+          <mat-label>Telefone</mat-label>
+          <input
+            [(ngModel)]="funcionario.telefone"
+            name="telefone"
+            type="tel"
+            matInput
+          />
+        </mat-form-field>
+        <mat-form-field class="input-matricula" appearance="legacy">
+          <mat-label>Matricula</mat-label>
+          <input
+            [(ngModel)]="funcionario.matricula"
+            name="matricula"
+            [formControl]="matricula"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="input-empresa" appearance="legacy">
+          <mat-label>Empresa</mat-label>
+          <input
+            [(ngModel)]="funcionario.empresa"
+            name="empresa"
+            [formControl]="empresa"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="input-tag" appearance="legacy">
+          <mat-label>Tag</mat-label>
+          <input
+            [(ngModel)]="funcionario.tag"
+            name="tag"
+            type="text"
+            matInput
+            value=""
+          />
+        </mat-form-field>
+        <button
+          (click)="createDialog()"
+          [disabled]="!validaCampos()"
+          class="button-cadastrar mat-elevation-z8"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+        <button
+          class="button-cancelar mat-elevation-z8"
+          (click)="return()"
+          mat-stroked-button
+          color="warn"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

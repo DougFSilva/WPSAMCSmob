@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: auto;
+  border-radius: 1rem;
+  width: 94%;
+  background-color: rgb(235, 235, 235);
+}
+
+.webcam {
+  display: flex;
+  flex-direction: column;
+}
+
+.webcam h2 {
+  text-align: center;
+  font-weight: bold;
+  color: blueviolet;
+  margin-top: .3rem;
+  font-size: 1.2rem;
+}
+
+.button-webcam-trigger {
+  margin-top: .3rem;
+  background-color: blueviolet;
+  width: 100%;
+}
+
+.webcam-cam {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.adjust-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.snapshot-title {
+  text-align: center;
+  font-weight: bold;
+  color: blueviolet;
+  margin-top: .3rem;
+}
+
+.snapshot {
+  width: 84%;
+  height: auto;
+
+}
+
+.img-preview {
+  margin-top: .3rem;
+  width: 84%;
+  height: auto;
+}
+
+.button-save {
+  width: 100%;
+  background-color: blueviolet;
+  margin-top: 1rem;
+  font-weight: bold;
+}

@@ -1,0 +1,123 @@
+.container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container-header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: .3rem;
+    font-size: 1.2rem;
+}
+
+.button-add {
+    width: 90%;
+    height: 2rem;
+}
+
+.filter{
+    width: 90%;
+}
+
+.form-filter {
+    width: 65%;
+    margin-right: 3%;
+}
+
+.form-filter-options {
+    width: 32%;
+}
+
+.result {
+    color: blueviolet;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.card {
+
+    height: 42vh;
+    width: 46%;
+    background-color: rgb(235, 235, 235);
+    margin: 2%;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: -1rem;
+}
+
+.card-header-div-icon-person {
+    width: 15%;
+    margin-left: -3rem;
+}
+
+.present {
+    color: green;
+}
+
+.notPresent {
+    color: red;
+}
+
+.card-header-div-title {
+    width: 70%;
+    text-align: center;
+}
+
+.card-header-div-icon-menu {
+    width: 15%;
+    margin-right: .5rem;
+}
+
+
+.card-turma {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.card-menu {
+    margin-top: -1em;
+
+}
+
+.card-img {
+    width: 90%;
+    height: 70%;
+    margin: 0% 5%;
+    cursor: pointer;
+}
+
+mat-card-content {
+    max-height: 3.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-top: 1rem;
+    color: blue;
+    font-size: 0.8rem;
+    cursor: pointer;
+}

@@ -1,0 +1,108 @@
+.container{
+  width: 100%;
+}
+
+.card {
+    background-color: rgb(235, 235, 235);
+    width: 80%;
+    margin: 2rem auto 0 auto;
+    border-radius: .6rem;
+}
+
+.form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-title {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: blueviolet
+}
+
+.icon-person {
+    color: blueviolet;
+    transform: scale(2, 2);
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    margin: 1rem 0rem 1rem 0rem;
+
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.input-nome {
+    width: 73%;
+    margin-right: 2%;
+    display: inline;
+}
+
+.input-sexo {
+    width: 25%;
+    display: inline;
+}
+
+.input-cidade,
+.input-rg {
+    width: 32%;
+    margin-right: 2%;
+}
+
+.input-dataNascimento {
+    width: 32%;
+}
+
+.input-email {
+    width: 49%;
+    margin-right: 2%;
+}
+
+.input-tel {
+    width: 49%;
+}
+
+.input-turma {
+
+    width: 25%;
+    margin-right: 2%;
+}
+
+.input-numeroTurma {
+    width: 14%;
+    margin-right: 2%;
+}
+
+.input-matricula {
+    width: 25%;
+    margin-right: 2%;
+}
+
+.input-dataMatricula {
+    width: 30%;
+}
+
+.input-empresa {
+    width: 40%;
+    margin-right: 2%;
+}
+
+
+.input-tag {
+    width: 58%;
+    margin-bottom: 2rem;
+}
+
+
+.button-cadastrar,
+.button-cancelar {
+    margin-bottom: .5rem;
+    width: 100%;
+    height: 2rem;
+}

@@ -1,0 +1,148 @@
+<div class="container">
+  <h1 class="title">{{ turma.codigo }}</h1>
+  <div>
+    <mat-card class="card mat-elevation-z8">
+      <div class="card-div">
+        <div class="field col-12 md:col-4">
+          <label for="multiple"></label>
+          <p-calendar
+            [(ngModel)]="dates"
+            [showIcon]="true"
+            [inline]="true"
+            dateFormat="mm-dd-yy"
+            selectionMode="multiple"
+            [readonlyInput]="true"
+            inputId="multiple"
+          ></p-calendar>
+        </div>
+        <div class="card-div-more-options">
+          <mat-form-field class="card-div-input-startDate" appearance="legacy">
+            <mat-label>Data inicial</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker1"
+              (dateInput)="addStartDate('input', $event)"
+              (dateChange)="addStartDate('change', $event)"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="card-div-input-endDate" appearance="legacy">
+            <mat-label>Data Final</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker2"
+              (dateInput)="addEndDate('input', $event)"
+              (dateChange)="addEndDate('change', $event)"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkSeg"
+          >
+            Seg</mat-checkbox
+          >
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkTer"
+          >
+            Ter</mat-checkbox
+          >
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkQua"
+          >
+            Qua</mat-checkbox
+          >
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkQui"
+          >
+            Qui</mat-checkbox
+          >
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkSex"
+          >
+            Sex</mat-checkbox
+          >
+          <mat-checkbox
+            color="primary"
+            class="more-options-checkbox"
+            [(ngModel)]="checkSab"
+          >
+            Sáb</mat-checkbox
+          >
+
+          <button
+            (click)="addDays()"
+            class="button-addDays mat-elevation-z8"
+            mat-raised-button
+            color="primary"
+          >
+            Adicionar
+          </button>
+          <mat-form-field class="more-options-turma-select" appearance="legacy">
+            <mat-label>Selelecione a turma</mat-label>
+            <mat-select [(ngModel)]="turmaSelectedId">
+              <mat-option *ngFor="let turma of turmas" [value]="turma.id">
+                {{ turma.codigo }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button
+            (click)="copy()"
+            class="button-copy mat-elevation-z8"
+            mat-raised-button
+            color="primary"
+          >
+            Copiar datas
+          </button>
+
+          <button
+            (click)="deleteDialog(turma.id)"
+            class="button-delete mat-elevation-z8"
+            mat-raised-button
+            color="warn"
+          >
+            Deletar todas as datas
+          </button>
+        </div>
+      </div>
+
+      <button
+        (click)="createDialog()"
+        class="button-save mat-elevation-z8"
+        mat-raised-button
+        color="primary"
+      >
+        Salvar
+      </button>
+      <button
+        (click)="return()"
+        class="button-cancelar mat-elevation-z8"
+        mat-stroked-button
+        color="warn"
+      >
+        Cancelar
+      </button>
+    </mat-card>
+  </div>
+</div>

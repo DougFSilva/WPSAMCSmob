@@ -1,0 +1,54 @@
+.container{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+}
+
+.message{
+    width: 100%;
+    text-align: center;
+    font-size: .8rem;
+    margin-bottom: -1rem;
+}
+
+.warning-icon{
+    transform: scale(2);
+    color: darkgoldenrod;
+    margin: .5em auto 0 auto;
+}
+
+.mat-dialog-actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.button-confirm {
+    background-color: mediumseagreen;
+    color: white;
+    font-weight: bold;
+    width:30vw;
+}
+
+.button-not-confirm {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    width: 30vw;
+    margin-top: .3rem;
+}
+
+.check-icon{
+    color: white;
+    margin-right: .5em;
+}
+
+.clear-icon{
+    color: white;
+    margin-right: .5em;
+}

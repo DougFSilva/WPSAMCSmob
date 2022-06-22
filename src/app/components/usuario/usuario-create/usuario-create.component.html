@@ -1,0 +1,72 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <h1>CADASTRAR USUÁRIO</h1>
+    <mat-icon class="icon">supervised_user_circle</mat-icon>
+    <mat-form-field class="form-nome" appearance="legacy">
+      <mat-label>Nome</mat-label>
+      <input
+        matInput
+        [(ngModel)]="usuario.nome"
+        [formControl]="nome"
+        name="nome"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-empresa" appearance="legacy">
+      <mat-label>Empresa</mat-label>
+      <input
+        matInput
+        [(ngModel)]="usuario.empresa"
+        [formControl]="empresa"
+        name="empresa"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-username" appearance="legacy">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        [(ngModel)]="usuario.username"
+        [formControl]="username"
+        name="username"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-password" appearance="legacy">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        [(ngModel)]="usuario.password"
+        [formControl]="password"
+        name="password"
+        type="password"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-perfil" appearance="legacy">
+      <mat-label>Perfil</mat-label>
+      <mat-select [(ngModel)]="perfil" [formControl]="perfis" name="perfis">
+        <mat-option value="USER">Usuário</mat-option>
+        <mat-option value="OPERATOR">Operador</mat-option>
+        <mat-option value="ADMIN">Aministrador</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      (click)="createDialog()"
+      [disabled]="!validaCampos()"
+      class="button-cadastrar mat-elevation-z8"
+      mat-raised-button
+      color="primary"
+    >
+      Cadastrar
+    </button>
+    <button
+      class="button-cancelar mat-elevation-z8"
+      (click)="return()"
+      mat-stroked-button
+      color="warn"
+    >
+      Cancelar
+    </button>
+  </mat-card>
+</div>

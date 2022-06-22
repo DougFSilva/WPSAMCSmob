@@ -1,0 +1,122 @@
+<div class="container">
+  <h1>SISTEMA DE CONTROLE DE ACESSO SENAI </h1>
+  <div>
+    <mat-grid-list cols="1" rowHeight="120px" gutterSize="10px">
+
+      <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style]="{ 'background-color': 'lightSkyBlue' }"
+      >
+        <div class="grid-tile">
+          <h2>Total de alunos</h2>
+          <h1 class="grid-tile-value">{{ totalAlunos }}</h1>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style]="{ 'background-color': 'lightGreen' }"
+      >
+        <div class="grid-tile">
+          <h2>Alunos dentro da escola</h2>
+          <h1 class="grid-tile-value">{{ alunosDentroDaEscola }}</h1>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="charts">
+    <div class="alunos-cidade">
+      <h2>Alunos por cidade</h2>
+      <canvas
+        class="canvas"
+        baseChart
+        [data]="cidadeChartData"
+        [type]="cidadeChartType"
+      >
+      </canvas>
+    </div>
+
+    <div class="alunos-sexo">
+      <h2>Alunos por sexo</h2>
+      <canvas
+        class="canvas"
+        baseChart
+        [data]="sexoChartData"
+        [type]="sexoChartType"
+      >
+      </canvas>
+    </div>
+
+    <div class="alunos-curso">
+      <h2>Alunos por curso</h2>
+      <canvas
+        class="canvas"
+        baseChart
+        [data]="cursoChartData"
+        [type]="cursoChartType"
+      >
+      </canvas>
+    </div>
+
+    <div class="alunos-empresa">
+      <h2>Alunos por empresas</h2>
+      <canvas
+        baseChart
+        [data]="empresaBarChartData"
+        [options]="empresaBarChartOptions"
+        [plugins]="empresaBarChartPlugins"
+        [type]="empresaBarChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"
+      >
+      </canvas>
+    </div>
+
+    <div class="alunos-idade">
+      <h2>Alunos por idade</h2>
+      <canvas
+        baseChart
+        [data]="idadeBarChartData"
+        [options]="idadeBarChartOptions"
+        [plugins]="idadeBarChartPlugins"
+        [type]="idadeBarChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"
+      >
+      </canvas>
+    </div>
+
+    <div class="alunos-aniversariantes">
+      <h2>Alunos Aniversariantes</h2>
+      <table
+        mat-table
+        [dataSource]="aniversariantesDataSource"
+        class="table-aniversariantes mat-elevation-z8"
+      >
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="turma">
+          <th mat-header-cell *matHeaderCellDef>Turma</th>
+          <td mat-cell *matCellDef="let element">{{ element.turma }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="idade">
+          <th mat-header-cell *matHeaderCellDef>Idade</th>
+          <td mat-cell *matCellDef="let element">{{ element.idade }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

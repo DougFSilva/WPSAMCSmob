@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+}
+
+.card{
+  width: 80%;
+  margin: 2rem auto 0 auto;
+  background-color: rgb(235,235,235);
+  border-radius: .6rem;
+}
+
+.list-title {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.item-list-chave {
+    color: blueviolet;
+    margin-right: 1rem;
+    font-size: .8rem;
+}
+
+.item-list-valor {
+    color: red;
+    font-size: .8rem;
+}

@@ -1,0 +1,91 @@
+.container{
+    width: 100%;
+}
+
+.title {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color:blueviolet;
+    font-size: 1.2rem;
+
+}
+
+.filter{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.startDate, .endDate{
+    width: 40%;
+}
+
+
+.grid{
+    margin: 0 3% 0 3%;
+}
+
+.total-arrecadado, .total-investido, .balanco, .pagamentos, .alunos-pagantes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total-arrecadado-value, .total-investido-value,.balanco-value ,.pagamentos-value, .alunos-pagantes-value{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.chart-pagantes-turma{
+    margin: auto;
+    width: 94%;
+    margin-bottom: 2rem;
+}
+
+.card-table{
+    width: 96%;
+}
+
+.table{
+    width: 100%;
+    margin: auto;
+}
+
+.table-filter{
+    width: 98%;
+    margin: auto;
+}
+
+.table-button-add{
+    float: right;
+}
+
+.mat-column-data{
+    width: 15%;
+}
+
+.mat-column-investimento{
+    width: 75%;
+}
+
+.mat-column-valor{
+    width: 10%;
+}
+
+
+.table-icon-edit{
+    transform: scale(0.8);
+    color: blueviolet;
+    display: inline;
+    cursor: pointer;
+}
+
+.table-icon-delete{
+    transform: scale(0.8);
+    color: red;
+    display: inline;
+    cursor: pointer;
+}

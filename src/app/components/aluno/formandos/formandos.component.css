@@ -1,0 +1,96 @@
+.container {
+    width: 94%;
+    margin: auto;
+}
+
+.container-header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: .3rem;
+    font-size: 1.2rem;
+}
+
+.filter{
+  margin: -2rem auto auto auto ;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-filter {
+    width: 90%;
+}
+
+.form-filter-curso {
+    width: 65%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.filter-numeroTurma {
+    width: 20%;
+}
+
+.result {
+  text-align: center;
+    color: blueviolet;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.card {
+
+    height: 42vh;
+    width: 46%;
+    margin: 2%;
+    background-color: rgb(235, 235, 235);
+
+}
+
+.card:hover {
+    top: -2px;
+    box-shadow: 0 .5rem .5rem #666;
+}
+
+.card-header {
+    text-align: center;
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.card-turma {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.card-img {
+    width: 90%;
+    height: 70%;
+    margin: 0% 5%;
+    cursor: pointer;
+}
+
+mat-card-content {
+    max-height: 3.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-top: 1rem;
+    color: blue;
+    font-size: 0.8rem;
+    cursor: pointer;
+}

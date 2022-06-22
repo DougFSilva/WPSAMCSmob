@@ -1,0 +1,68 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <form class="form">
+      <img id="img-logo" src="assets/img/logo.jpg" alt="Logo Senai" />
+      <h1>Sistema de controle de acesso SENAI</h1>
+
+      <img
+        id="img-cadeado"
+        src="assets/img/cadeado.png"
+        alt="Sistema de controle de acesso"
+      />
+      <span>Insira seu NIF e senha para acesso ao sistema</span>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input
+          [formControl]="username"
+          [(ngModel)]="auth.username"
+          name="username"
+          matInput
+          placeholder="Digite seu nif"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          [formControl]="password"
+          [(ngModel)]="auth.password"
+          name="password"
+          type="password"
+          matInput
+          placeholder="Digite sua senha"
+          required
+        />
+      </mat-form-field>
+      <button
+        (click)="logar()"
+        [disabled]="!validaCampos()"
+        class="full-width mat-elevation-z6"
+        mat-raised-button
+        color="primary"
+      >
+        Login
+      </button>
+      <div class="social-icon">
+        <span>Nossas redes sociais</span>
+        <a href="https://pt-br.facebook.com/" target="_blank">
+          <img
+            id="img-facebook"
+            src="assets/img/icone_facebook.png"
+            alt="facebook"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+        >
+          <img
+            id="img-instagram"
+            src="assets/img/icone_instagram.jpg"
+            alt="instagram"
+          />
+        </a>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,91 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 2.5rem;
+    background-color: lightslategrey;
+}
+
+.toolbar-p1 {
+    align-items: center;
+    float: left;
+    width: 33%;
+}
+
+.toolbar-p2 {
+
+    display: flex;
+    color: white;
+    align-items: center;
+    width: 33%;
+    font-size: 1rem;
+}
+
+.toolbar-p3 {
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    align-items: center;
+    width: 33%;
+    font-size: 1rem;
+}
+
+.botao-menu {
+    color: white;
+    transform: scale(1.5);
+
+}
+
+.findByTag {
+    display: flex;
+    flex-direction: row;
+    color: white;
+
+}
+
+.findByTag-icon {
+    padding-top: .4em;
+    margin-right: .2em;
+}
+
+.findByTag-input {
+    color: white;
+    width: 10em;
+
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    height: 100%;
+}
+
+.sideNav {
+    width: 13rem;
+    color: white;
+    background-color: slategray;
+}
+
+.img-logo {
+    width: 90%;
+    height: auto;
+    margin-left: .6rem;
+
+}
+
+.sideNav a {
+    color: white;
+}
+
+.sideNav i {
+    margin-right: .9rem;
+}

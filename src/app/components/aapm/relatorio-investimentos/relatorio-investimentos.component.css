@@ -1,0 +1,49 @@
+.container {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message {
+    width: 100%;
+    text-align: center;
+}
+
+.pdf-icon {
+    transform: scale(3);
+    color: darkgoldenrod;
+    margin: 1em auto 1em auto;
+    align-items: center;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto -1em auto;
+}
+
+.button-confirm {
+    background-color: mediumseagreen;
+    color: white;
+    font-weight: bold;
+    width: 45%
+}
+
+.button-not-confirm {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    width: 45%;
+}
+
+.check-icon {
+    color: white;
+    margin-right: .5em;
+}
+
+.clear-icon {
+    color: white;
+    margin-right: .5em;
+}

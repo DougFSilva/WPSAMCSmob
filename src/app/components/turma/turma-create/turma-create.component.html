@@ -1,0 +1,119 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <form action="" class="form">
+      <h1 class="form-title">CADASTRAR TURMA</h1>
+      <mat-icon class="icon-curso">account_balance</mat-icon>
+      <div class="form-container">
+        <mat-form-field class="input-codigo" appearance="legacy">
+          <mat-label>Codigo</mat-label>
+          <input
+            [(ngModel)]="turma.codigo"
+            name="codigo"
+            [formControl]="codigo"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-entrada" appearance="legacy">
+          <mat-label>Horário de entrada</mat-label>
+          <input
+            [(ngModel)]="turma.entrada"
+            name="entrada"
+            type="time"
+            [formControl]="entrada"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-saida" appearance="legacy">
+          <mat-label>Horário de saída</mat-label>
+          <input
+            [(ngModel)]="turma.saida"
+            name="saida"
+            type="time"
+            [formControl]="saida"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-almocoSaida" appearance="legacy">
+          <mat-label>Horário de saída para almoço</mat-label>
+          <input
+            [(ngModel)]="turma.almocoSaida"
+            name="almocoSaida"
+            type="time"
+            [formControl]="almocoSaida"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-almocoEntrada" appearance="legacy">
+          <mat-label>Horário de retorno do almoço</mat-label>
+          <input
+            [(ngModel)]="turma.almocoEntrada"
+            name="almocoEntrada"
+            type="time"
+            [formControl]="almocoEntrada"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-toleranciaEntrada" appearance="legacy">
+          <mat-label>Tolerância de entrada</mat-label>
+          <input
+            [(ngModel)]="turma.toleranciaEntrada"
+            name="toleranciaEntrada"
+            [formControl]="toleranciaEntrada"
+            matInput
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-toleranciaSaida" appearance="legacy">
+          <mat-label>Tolerância de saída</mat-label>
+          <input
+            [(ngModel)]="turma.toleranciaSaida"
+            name="toleranciaSaida"
+            [formControl]="toleranciaSaida"
+            matInput
+          />
+        </mat-form-field>
+
+        <mat-form-field class="input-periodo" appearance="legacy">
+          <mat-label>Período</mat-label>
+          <mat-select
+            [formControl]="periodo"
+            [(ngModel)]="turma.periodo"
+            required
+          >
+            <mat-option *ngFor="let periodo of listPeriodo" [value]="periodo">
+              {{ periodo }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          (click)="createDialog()"
+          [disabled]="!validaCampos()"
+          class="button-cadastrar mat-elevation-z8"
+          mat-raised-button
+          color="primary"
+        >
+          Cadastrar
+        </button>
+        <button
+          (click)="return()"
+          class="button-cancelar mat-elevation-z8"
+          mat-stroked-button
+          color="warn"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

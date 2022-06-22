@@ -1,0 +1,205 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <div class="card-header">
+      <mat-card-title-group>
+        <mat-card-title ngClass="card-aluno-nome"
+          >{{ aluno.nome }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2 class="card-aluno-turma">{{ aluno.turma }}</h2>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <h1 class="card-aluno-idade">{{ aluno.idade }} Anos</h1>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <h2 class="card-aluno-empresa">Empresa: {{ aluno.empresa }}</h2>
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="bloqOcorrencia > 0">
+          <h2 [ngStyle]="{ color: 'red' }">
+            <mat-icon [ngStyle]="{ color: 'red' }">lock</mat-icon>BLOQUEADO
+          </h2>
+        </mat-card-subtitle>
+      </mat-card-title-group>
+      <div class="card-header-foto">
+        <img class="aluno-foto" mat-card-lg-image [src]="aluno.foto" />
+        <button
+          *ngIf="perfilUsuario == 'ADMIN'"
+          class="button-more mat-elevation-z8"
+          mat-raised-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          Opções<mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button routerLink="/aluno/{{ aluno.id }}/update" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+          </button>
+          <button routerLink="/aluno/{{ aluno.id }}/foto" mat-menu-item>
+            <mat-icon>photo</mat-icon>
+            <span>Foto</span>
+          </button>
+          <button mat-menu-item [matMenuTriggerFor]="menuStatus">
+            <mat-icon>add</mat-icon>
+            <span>Status</span>
+          </button>
+          <button mat-menu-item [matMenuTriggerFor]="menuSolicitar">
+            <mat-icon>arrow_upward</mat-icon>
+            <span>Solicitar</span>
+          </button>
+          <button (click)="deleteByIdDialog()" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Deletar</span>
+          </button>
+        </mat-menu>
+
+        <mat-menu #menuStatus="matMenu">
+          <button
+            *ngIf="aluno.status != 'FORMANDO'"
+            (click)="updateStatusByIdDialog('FORMANDO')"
+            mat-menu-item
+          >
+            <mat-icon>school</mat-icon>
+            <span>Formar</span>
+          </button>
+          <button
+            *ngIf="aluno.status != 'EVADIDO'"
+            (click)="updateStatusByIdDialog('EVADIDO')"
+            mat-menu-item
+          >
+            <mat-icon>person_outline</mat-icon>
+            <span>Evadir</span>
+          </button>
+        </mat-menu>
+
+        <mat-menu #menuSolicitar="matMenu">
+          <button mat-menu-item (click)="solicitarCrachaDialog()">
+            <mat-icon>contacts</mat-icon>
+            <span>Impressão de crachá</span>
+          </button>
+          <button mat-menu-item (click)="solicitarInternetDialog()">
+            <mat-icon>network_wifi</mat-icon>
+            <span>Liberação de internet AAPM</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+
+    <mat-card class="card-detalhes">
+      <mat-list>
+        <mat-list-item ngClass="list-item">
+          <h3 class="list-item-title">NOME :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.nome }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">TURMA :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.turma }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">EMPRESA :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.empresa }}</h3>
+          <mat-icon>business</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">IDADE :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.idade }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">RG :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.rg }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">TELEFONE :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.telefone }}</h3>
+          <mat-icon>phone</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">E-MAIL :</h3>
+          <h3 ngClass="list-item-descricao">{{ aluno.email }}</h3>
+          <mat-icon>email</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+      <div>
+        <mat-list>
+          <mat-list-item ngClass="list-item">
+            <h3 class="list-item-title">DATA DE NASCIMENTO :</h3>
+            <h3 ngClass="list-item-descricao">
+              {{ aluno.dataNascimento | date: "dd/MM/yyyy" }}
+            </h3>
+            <mat-icon>date_range</mat-icon>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item ngClass="list-item">
+            <h3 class="list-item-title">CIDADE :</h3>
+            <h3 ngClass="list-item-descricao">{{ aluno.cidade }}</h3>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item ngClass="list-item">
+            <h3 class="list-item-title">TAG :</h3>
+            <h3 ngClass="list-item-descricao">{{ aluno.tag }}</h3>
+            <mat-icon>credit_card</mat-icon>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <h3 class="list-item-title">MATRICULA :</h3>
+            <h3 ngClass="list-item-descricao">{{ aluno.matricula }}</h3>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <h3 class="list-item-title">DATA DA MATRÍCULA :</h3>
+            <h3 ngClass="list-item-descricao">
+              {{ aluno.dataMatricula | date: "dd/MM/yyyy" }}
+            </h3>
+            <mat-icon>date_range</mat-icon>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <h3 class="list-item-title">TERMO DE INTERNET :</h3>
+            <div *ngIf="aluno.termoInternet == true; else elseBlock">
+              <h3 ngClass="list-item-descricao">Entregue</h3>
+              <mat-icon>check</mat-icon>
+            </div>
+            <ng-template #elseBlock>
+              <h3 ngClass="list-item-descricao">Pendente</h3>
+              <mat-icon>close</mat-icon>
+            </ng-template>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item>
+            <h3 class="list-item-title">INTERNET LIBERADA :</h3>
+            <div *ngIf="aluno.internetLiberada == true; else elseBlock2">
+              <h3 ngClass="list-item-descricao">Liberada</h3>
+              <mat-icon>wifi</mat-icon>
+            </div>
+            <ng-template class="list-item-descricao" #elseBlock2>
+              <h3 ngClass="list-item-descricao">Bloqueada</h3>
+              <mat-icon>wifi_lock</mat-icon>
+            </ng-template>
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+        </mat-list>
+      </div>
+    </mat-card>
+  </mat-card>
+</div>

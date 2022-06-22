@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-form-field class="input-validade" appearance="legacy">
+    <mat-label>Digite a validade</mat-label>
+    <input
+      [(ngModel)]="validade"
+      [formControl]="inputValidade"
+      name="validade"
+      type="text"
+      matInput
+      required
+    />
+  </mat-form-field>
+  <div id="card" class="card mat-elevation-z4">
+    <div class="header">
+      <img class="logo-senai" src="assets/img/logo.jpg" />
+      <p class="nome-escola">"Escola SAMCS"</p>
+    </div>
+    <div class="photo">
+      <img class="photo-aluno" [src]="aluno.foto" alt="" />
+    </div>
+    <div class="name">
+      <h3 class="first-name">{{ nome }}</h3>
+      <p class="complete-name">{{ sobreNome }}</p>
+    </div>
+    <div class="description">
+      <div class="description-item">
+        <p class="description-item-key">Curso:</p>
+        <p class="description-item-value">{{ aluno.curso }}</p>
+      </div>
+      <div class="description-item">
+        <p class="description-item-key">Rg:</p>
+        <p class="description-item-value">{{ aluno.rg }}</p>
+      </div>
+      <div class="description-item">
+        <p class="description-item-key">Nascimento:</p>
+        <p class="description-item-value">
+          {{ aluno.dataNascimento | date: "dd/MM/yyyy" }}
+        </p>
+      </div>
+      <div class="description-item">
+        <p class="description-item-key">Matrícula:</p>
+        <p class="description-item-value">{{ aluno.matricula }}</p>
+      </div>
+      <div class="description-item">
+        <p class="description-item-key">Validade:</p>
+        <p class="description-item-value">{{ validade }}</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="footer-description">Livre utilização SAMCS</p>
+    </div>
+  </div>
+  <button
+    [disabled]="!validaCampos()"
+    class="button mat-elevation-z4"
+    mat-raised-button
+    color="primary"
+    (click)="toPDF()"
+  >
+    <mat-icon>print</mat-icon>Imprimir
+  </button>
+</div>

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: black;
+  
+}
+
+h3 {
+    margin-top: 1rem;
+    border:1px solid rgb(156, 155, 155);
+    padding: .7rem 10%;
+    border-radius: 2rem;
+    background: linear-gradient(0deg, rgba(23,191,222,1) 15%, rgba(50,61,201,0.835171568627451) 79%);
+    
+}

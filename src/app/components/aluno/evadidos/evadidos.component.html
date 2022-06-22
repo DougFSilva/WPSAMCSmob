@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>EVADIDOS</h1>
+
+  <div class="filter">
+    <mat-form-field class="form-filter" appearance="standard">
+      <mat-label>Filtrar</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter()"
+        placeholder="Ex. ium"
+        id="filter"
+        value=""
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-filter-curso" appearance="legacy">
+      <mat-label>Filtrar por curso:</mat-label>
+      <mat-select
+        [(ngModel)]="idCursoSelected"
+        required
+        (ngModelChange)="findAllByCurso()"
+      >
+        <mat-option *ngFor="let curso of cursos" [value]="curso.id">{{
+          curso.areaTecnologica
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <h3 class="result">RESULTADO: {{ totalAlunos }}</h3>
+
+  <div class="cards">
+    <mat-card
+      *ngFor="let evadido of evadidosFilter"
+      class="card mat-elevation-z8"
+    >
+      <mat-card-header class="card-header">
+          {{
+            evadido.dataMatricula | date: "dd/MM/yyyy"
+          }}
+
+      </mat-card-header>
+      <img
+        class="card-img"
+        routerLink="/aluno/{{ evadido.id }}"
+        mat-card-image
+        *ngIf="evadido.matricula"
+        [src]="evadido.foto"
+        alt="Foto {{ evadido.nome }}"
+      />
+      <mat-card-content>
+        <p routerLink="/aluno/{{ evadido.id }}">
+          {{ evadido.nome }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>TURMAS</h1>
+  <mat-form-field appearance="standard">
+    <mat-label>Filtrar</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter()"
+      placeholder="Ex. ium"
+      id="filter"
+      value=""
+    />
+  </mat-form-field>
+
+  <div class="cards">
+    <mat-card *ngFor="let turma of turmaFilter" class="card mat-elevation-z8">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ turma.codigo }}</mat-card-title>
+
+        <button
+          class="card-menu"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete_forever</mat-icon>
+            <span>Deletar</span>
+          </button>
+        </mat-menu>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="assets/img/eletronica.jpg"
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content>
+        <p>
+          {{ turma.curso }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

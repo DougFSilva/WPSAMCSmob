@@ -1,0 +1,48 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(235, 235, 235);
+    width: 35vw;
+    height: auto;
+    margin: 2rem auto 2rem auto;
+    align-items: center;
+}
+
+h1 {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.icon {
+    transform: scale(2);
+    color: blueviolet;
+    margin: 1em auto 1em auto;
+}
+
+.form-nome {
+    width: 100%;
+}
+
+.form-empresa {
+    width: 100%;
+}
+
+.form-username {
+    width: 100%;
+}
+
+.form-password {
+    width: 100%;
+}
+
+.form-perfil {
+    width: 50%;
+}
+
+.button-cancelar,
+.button-cadastrar {
+    margin-top: 1em;
+    width: 100%;
+}

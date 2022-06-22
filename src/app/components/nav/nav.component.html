@@ -1,0 +1,72 @@
+<mat-toolbar class="toolbar">
+
+  <div class="toolbar-p1">
+    <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon class="botao-menu">menu</mat-icon>
+    </button>
+
+  </div>
+
+  <div class="toolbar-p2">
+    <span class="toolbar-p2-text">SCAS</span>
+  </div>
+
+  <div class="toolbar-p3">
+    <span> {{usuarioLogado | slice:0:12}} </span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+        <mat-icon>account_circle</mat-icon>
+
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+      </button>
+    </mat-menu>
+  </div>
+
+</mat-toolbar>
+
+<mat-drawer-container class="container" autosize>
+
+  <mat-drawer #drawer class="sideNav"  mode="over" >
+    <mat-nav-list class="nav-list">
+      <img class="img-logo" src="assets/img/logo_senai.jpg" alt="imagem de navegação" />
+      <a mat-list-item routerLink="home" (click)="drawer.toggle()">
+        <i class="material-icons">home</i>
+        home
+      </a>
+      <a mat-list-item routerLink="cursos" (click)="drawer.toggle()">
+        <i class="material-icons">account_balance</i>
+        Cursos
+      </a>
+      <a mat-list-item routerLink="alunos" (click)="drawer.toggle()">
+        <i class="material-icons">person</i>
+        Alunos
+      </a>
+      <a mat-list-item routerLink="formandos" (click)="drawer.toggle()">
+        <i class="material-icons">school</i>
+        Formandos
+      </a>
+      <a mat-list-item routerLink="evadidos" (click)="drawer.toggle()">
+        <i class="material-icons">person_outline</i>
+        Evadidos
+      </a>
+      <a mat-list-item routerLink="funcionarios" (click)="drawer.toggle()">
+        <i class="material-icons">people</i>
+        Funcionarios
+      </a>
+      <a *ngIf="perfilUsuario == 'ADMIN'" mat-list-item routerLink="aapm" (click)="drawer.toggle()">
+        <i class="material-icons">money</i>
+        AAPM
+      </a>
+
+      <a mat-list-item (click)="logoutDialog()">
+        <i class="material-icons">logout</i>
+        Logout
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+
+  <router-outlet></router-outlet>
+</mat-drawer-container>

@@ -1,0 +1,83 @@
+.container{
+  width: 100%;
+}
+.card {
+    width: 94%;
+    background-color: rgb(235, 235, 235);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-header-foto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.card-detalhes{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-funcionario-nome {
+    color: blueviolet;
+    font-size: .8rem;
+}
+
+.card-funcionario-turma {
+    color: red;
+    font-size: .7rem;
+}
+
+.card-funcionario-idade {
+    font-weight: bold;
+    font-size: .7rem;
+}
+
+.card-funcionario-empresa {
+    font-weight: bold;
+    font-size: .7rem;
+}
+
+.button-more {
+  margin-top: .3rem;
+  background-color: blueviolet;
+  color: white;
+  width: 100%;
+  margin-bottom: .3rem;
+}
+
+.funcionario-foto {
+  height: 10rem;
+  width: auto;
+}
+
+
+.mat-tab-icon {
+    color: red;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.list-item-title {
+    color: red;
+    margin-right: .5rem;
+    display: inline;
+    font-size: .8rem;
+}
+
+.list-item-descricao {
+    color: blue;
+    display: inline;
+    font-size: .8rem;
+}
+

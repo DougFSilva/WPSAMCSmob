@@ -1,0 +1,73 @@
+.container {
+    margin: 1rem;
+}
+
+h1 {
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.button-opcoes {
+    float: right;
+}
+
+.table-solicitacao-pendente {
+    width: 100%;
+}
+
+.filtro {
+    width: 100%;
+}
+
+.mat-column-dataSolicitacao {
+    width: 10%;
+}
+
+.mat-column-dataConclusao {
+    width: 10%;
+}
+
+.mat-column-turma {
+    width: 10%;
+}
+
+.mat-column-aluno {
+    width: 25%;
+}
+
+.nomeAluno:hover {
+    font-size: 1.1em;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.mat-column-descricao {
+    width: 30%;
+}
+
+.mat-column-status {
+    width: 10%;
+}
+
+.mat-column-acao {
+    width: 5%;
+}
+
+.div-acao {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.icon-edit {
+    transform: scale(0.8);
+    color: blueviolet;
+}
+
+.icon-delete {
+    transform: scale(0.8);
+    color: red;
+    margin-left: -2rem;
+}

@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem
+}
+
+.title {
+  font-weight: bold;
+  color: blueviolet
+}
+
+.card {
+  background-color: rgb(235, 235, 235);
+  margin: 0 auto;
+  width: 62vw;
+  height: auto;
+}
+
+.card-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.field {
+  width: 60%;
+}
+
+.card-div-more-options {
+  width: auto;
+  margin-left: 1rem;
+}
+
+.card-div-input-startDate {
+  width: 100%;
+}
+
+.card-div-input-endDate {
+  width: 100%;
+}
+
+.more-options-checkbox {
+  margin-right: 1em;
+}
+
+.button-addDays {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.more-options-turma-select {
+  margin-top: 3em;
+  width: 50%;
+}
+
+.button-copy {
+  margin-left: 2%;
+  width: 48%;
+}
+
+.button-delete {
+  margin-top: 3em;
+  width: 100%;
+  float: right
+}
+
+.button-save {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.button-cancelar {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.card-dates {
+  background-color: rgb(235, 235, 235);
+  width: 20rem;
+  height: auto;
+  margin: 2rem auto;
+}
+
+.card-dates h2 {
+  font-weight: bold;
+  color: blueviolet;
+  text-align: center;
+}
+
+.grid-date {
+  width: auto;
+  background-color: blueviolet;
+  font-weight: bold;
+  border-radius: .5rem;
+
+}

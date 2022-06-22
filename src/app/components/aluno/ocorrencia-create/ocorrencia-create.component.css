@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    margin: 2rem auto 2rem auto;
+    flex-wrap: wrap;
+}
+
+.form-title {
+    color: blueviolet;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-icon-title {
+
+    transform: scale(2);
+    color: blueviolet;
+    margin: 1rem auto 1rem auto;
+
+}
+
+
+.form-input-tipo {
+    width: 30%;
+}
+
+.form-input-descricao {
+    width: 100%;
+}
+
+.form-input-resolvido {
+    width: 49%;
+}
+
+.form-input-privado {
+    width: 49%;
+    margin-left: 2%;
+}
+
+.button-registrar {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.button-cancelar {
+    width: 100%;
+    margin-top: 1rem;
+}

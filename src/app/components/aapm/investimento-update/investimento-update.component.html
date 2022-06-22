@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <h1 class="title">EDITAR INVESTIMENTO</h1>
+
+    <mat-form-field class="form-data" appearance="legacy">
+      <mat-label>Data</mat-label>
+      <input name="data" [(ngModel)]="investimento.data" type="date" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="form-investimento" appearance="legacy">
+      <mat-label>Investimento</mat-label>
+      <input
+        name="investimento"
+        [(ngModel)]="investimento.investimento"
+        type="text"
+        matInput
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-valor" appearance="legacy">
+      <mat-label>Valor</mat-label>
+      <input
+        name="valor"
+        [(ngModel)]="investimento.valor"
+        type="number"
+        matInput
+      />
+    </mat-form-field>
+
+    <button
+      class="button-save mat-elevation-z4"
+      mat-raised-button
+      color="primary"
+      (click)="updateDialog()"
+    >
+      Salvar
+    </button>
+    <button
+      class="button-cancel mat-elevation-z4"
+      mat-stroked-button
+      color="warn"
+      mat-dialog-close="false"
+    >
+      Cancelar
+    </button>
+  </mat-card>
+</div>

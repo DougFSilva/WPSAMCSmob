@@ -1,0 +1,24 @@
+<div class="container">
+  <mat-icon class="pdf-icon">picture_as_pdf</mat-icon>
+  <h2 class="message">
+    Deseja fazer download do relatório de ocorrências do aluno(a)
+    {{ aluno.nome }}?
+  </h2>
+  <mat-dialog-actions class="mat-dialog-actions">
+    <button
+      mat-raised-button
+      mat-dialog-close="true"
+      (click)="toPDF()"
+      class="button-confirm"
+    >
+      <mat-icon class="check-icon">check</mat-icon>Sim
+    </button>
+    <button
+      mat-raised-button
+      mat-dialog-close="false"
+      class="button-not-confirm"
+    >
+      <mat-icon class="clear-icon">clear</mat-icon>Não
+    </button>
+  </mat-dialog-actions>
+</div>

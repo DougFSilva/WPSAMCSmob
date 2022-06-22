@@ -1,0 +1,72 @@
+<div class="container">
+  <h1>FORMANDOS</h1>
+
+  <div class="filter">
+    <mat-form-field class="form-filter" appearance="standard">
+      <mat-label>Filtrar</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter()"
+        placeholder="Ex. ium"
+        id="filter"
+        value=""
+      />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field class="form-filter-curso" appearance="legacy">
+        <mat-label>Filtrar por curso:</mat-label>
+        <mat-select
+          [(ngModel)]="idCursoSelected"
+          required
+          (ngModelChange)="findAllByCurso()"
+        >
+          <mat-option *ngFor="let curso of cursos" [value]="curso.id">{{
+            curso.areaTecnologica
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="filter-numeroTurma" appearance="standard">
+        <mat-label>Nº Turma</mat-label>
+        <input
+          matInput
+          [(ngModel)]="numeroTurmaSelected"
+          (keyup)="applyFilter()"
+          placeholder="Ex. ium"
+          value=""
+        />
+      </mat-form-field>
+
+    </div>
+
+  </div>
+  <h3 class="result">RESULTADO: {{ totalAlunos }}</h3>
+
+  <div class="cards">
+    <mat-card
+      *ngFor="let formando of formandosFilter"
+      class="card mat-elevation-z8"
+    >
+      <mat-card-header class="card-header">
+
+          {{
+            formando.dataMatricula | date: "dd/MM/yyyy"
+          }}
+
+      </mat-card-header>
+      <img
+        class="card-img"
+        routerLink="/aluno/{{ formando.id }}"
+        mat-card-image
+        *ngIf="formando.matricula"
+        [src]="formando.foto"
+        alt="Foto {{ formando.nome }}"
+      />
+      <mat-card-content>
+        <p routerLink="/aluno/{{ formando.id }}">
+          {{ formando.nome }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

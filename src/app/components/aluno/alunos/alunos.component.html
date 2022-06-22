@@ -1,0 +1,99 @@
+<div class="container">
+  <h1>ALUNOS</h1>
+
+  <div class="container-header">
+    <button
+      routerLink="/aluno/create"
+      class="button-add mat-elevation-z4"
+      mat-raised-button
+      color="primary"
+    >
+      Cadastrar novo aluno
+    </button>
+    <div class="filter">
+      <mat-form-field class="form-filter" appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter()"
+          placeholder="Ex. ium"
+          id="filter"
+          value=""
+        />
+      </mat-form-field>
+
+      <mat-form-field class="form-filter-options" appearance="legacy">
+        <mat-label>Filtrar por:</mat-label>
+        <mat-select [(ngModel)]="filtrarPor" required>
+          <mat-option value="nome"> Nome </mat-option>
+          <mat-option value="tag"> Tag </mat-option>
+          <mat-option value="matricula"> matricula </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <h3 class="result">RESULTADO: {{ totalAlunos }}</h3>
+  </div>
+
+  <div class="cards">
+    <mat-card *ngFor="let aluno of alunosFilter" class="card mat-elevation-z8">
+      <mat-card-header class="card-header">
+        <div class="card-header-div-icon-person">
+          <div
+            *ngIf="
+              isPresent(aluno.entradaSaida);
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+          <ng-template #thenBlock
+            ><mat-icon class="present" id="present"
+              >person</mat-icon
+            ></ng-template
+          >
+          <ng-template #elseBlock
+            ><mat-icon class="notPresent" id="notPresent"
+              >person</mat-icon
+            ></ng-template
+          >
+        </div>
+        <div class="card-header-div-title">
+          <span class="card-turma"> {{ aluno.turma }}</span>
+        </div>
+
+        <div class="card-header-div-icon-menu">
+          <button
+            class="card-menu"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Icon-button with a menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button routerLink="/aluno/{{ aluno.id }}/update" mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
+            </button>
+            <button (click)="deleteByIdDialog(aluno.id)" mat-menu-item>
+              <mat-icon>delete_forever</mat-icon>
+              <span>Deletar</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card-header>
+      <img
+        class="card-img"
+        routerLink="/aluno/{{ aluno.id }}"
+        mat-card-image
+        *ngIf="aluno.matricula"
+        [src]="aluno.foto"
+        alt="Foto {{ aluno.nome }}"
+      />
+      <mat-card-content>
+        <p routerLink="/aluno/{{ aluno.id }}">
+          {{ aluno.nome }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

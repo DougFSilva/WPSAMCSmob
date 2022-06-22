@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <h1 class="title">PAGAMENTO DA AAPM</h1>
+    <div>
+      <mat-form-field class="form-dataPagamento" appearance="legacy">
+        <mat-label>Data de pagamento</mat-label>
+        <input
+          name="dataPagamento"
+          [formControl]="dataPagamento"
+          [(ngModel)]="aapm.dataPagamento"
+          type="date"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field class="form-semestre" appearance="legacy">
+        <mat-label>Semestre</mat-label>
+        <mat-select
+          [(ngModel)]="aapm.semestre"
+          [formControl]="semestre"
+          name="semestre"
+        >
+          <mat-option value="PRIMEIRO_SEMESTRE">1º semestre</mat-option>
+          <mat-option value="SEGUNDO_SEMESTRE">2º semestre</mat-option>
+          <mat-option value="TERCEIRO_SEMESTRE">3º semestre</mat-option>
+          <mat-option value="QUARTO_SEMESTRE">4º semestre</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="form-recibo" appearance="legacy">
+      <mat-label>Recibo</mat-label>
+      <input name="recibo" [(ngModel)]="aapm.recibo" type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="form-valor" appearance="legacy">
+      <mat-label>Valor</mat-label>
+      <input
+        name="valor"
+        [formControl]="valor"
+        [(ngModel)]="aapm.valor"
+        type="number"
+        matInput
+      />
+    </mat-form-field>
+
+    <button
+      class="button-save mat-elevation-z4"
+      mat-raised-button
+      color="primary"
+      (click)="updateDialog()"
+    >
+      Salvar
+    </button>
+    <button
+      class="button-cancel mat-elevation-z4"
+      mat-stroked-button
+      color="warn"
+      (click)="return()"
+    >
+      cancelar
+    </button>
+  </mat-card>
+</div>

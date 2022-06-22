@@ -1,0 +1,61 @@
+.container {
+    width: 90%;
+    margin:auto;
+}
+h1{
+    color: blueviolet;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+  }
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.card{
+    max-width: 15rem;
+    height: auto;
+    margin:.5rem .5rem;
+    background-color: rgb(235, 235, 235);
+    padding-left: .5em;
+    padding-right: .5em;
+
+}
+
+.card:hover{top:-2px;box-shadow:0 .5rem .5rem  #666;}
+
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 20%;
+    margin-left: 10%;
+    margin-right: -1rem;
+
+}
+
+.card-add{
+    width: 20%;
+    margin:1rem 0rem;
+    background-color: transparent;
+    border: none;
+}
+
+.card-menu{
+    margin-top: -1em;
+}
+
+mat-card-content{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+

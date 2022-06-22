@@ -1,0 +1,98 @@
+<div class="container">
+  <h1>ALARMES</h1>
+  <button
+    mat-raised-button
+    [matMenuTriggerFor]="menuOpcoes"
+    color="primary"
+    class="button-opcoes"
+  >
+    Opções<mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+  <mat-menu #menuOpcoes="matMenu">
+    <button mat-menu-item (click)="deleteAllDialog()">
+      <mat-icon>delete_forever</mat-icon> Apagar todos alarmes
+    </button>
+  </mat-menu>
+  <mat-form-field class="filter" appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. ium"
+      #input
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let element">{{ element.data }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="turma">
+      <th mat-header-cell *matHeaderCellDef>Turma</th>
+      <td mat-cell *matCellDef="let element">{{ element.turma }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">
+        <span class="nomeAluno" (click)="findAlunoById(element.alunoId)">{{
+          element.aluno
+        }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef>Descrição</th>
+      <td mat-cell *matCellDef="let element">{{ element.descricao }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.status == true" [ngStyle]="{ color: 'red' }"
+          >Pendente</span
+        >
+        <span *ngIf="element.status == false">Resolvido</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <div class="div-acao">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon class="icon-edit">edit</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              *ngIf="element.status == true"
+              mat-menu-item
+              (click)="updateStatusByIdDialog(element.id, false)"
+            >
+              Resolver
+            </button>
+            <button
+              *ngIf="element.status == false"
+              mat-menu-item
+              (click)="updateStatusByIdDialog(element.id, true)"
+            >
+              Reabrir
+            </button>
+          </mat-menu>
+          <button mat-button (click)="deleteByIdDialog(element.id)">
+            <mat-icon class="icon-delete">delete</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Sem dados para apresentar</td>
+    </tr>
+  </table>
+</div>

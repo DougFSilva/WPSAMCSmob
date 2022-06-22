@@ -1,0 +1,134 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <div class="card-header">
+      <mat-card-title-group>
+        <mat-card-title ngClass="card-funcionario-nome"
+          >{{ funcionario.nome }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h1 class="card-funcionario-idade">{{ funcionario.idade }} Anos</h1>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <h2 class="card-funcionario-empresa">
+            Empresa: {{ funcionario.empresa }}
+          </h2>
+        </mat-card-subtitle>
+      </mat-card-title-group>
+
+      <div class="card-header-foto">
+        <img
+          class="funcionario-foto"
+          mat-card-lg-image
+          [src]="funcionario.foto"
+        />
+        <button
+          *ngIf="perfilUsuario == 'ADMIN'"
+          class="button-more mat-elevation-z8"
+          mat-raised-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          Opções<mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button
+            routerLink="/funcionario/{{ funcionario.id }}/update"
+            mat-menu-item
+          >
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+          </button>
+          <button
+            routerLink="/funcionario/{{ funcionario.id }}/foto"
+            mat-menu-item
+          >
+            <mat-icon>photo</mat-icon>
+            <span>Foto</span>
+          </button>
+          <button (click)="deleteByIdDialog()" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Deletar</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+
+    <mat-card ngClass="card-detalhes">
+      <mat-list>
+        <mat-list-item ngClass="list-item">
+          <h3 class="list-item-title">NOME :</h3>
+          <h3 ngClass="list-item-descricao">{{ funcionario.nome }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">EMPRESA :</h3>
+          <h3 ngClass="list-item-descricao">
+            {{ funcionario.empresa }}
+          </h3>
+          <mat-icon>business</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">IDADE :</h3>
+          <h3 ngClass="list-item-descricao">{{ funcionario.idade }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">RG :</h3>
+          <h3 ngClass="list-item-descricao">{{ funcionario.rg }}</h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">TELEFONE :</h3>
+          <h3 ngClass="list-item-descricao">
+            {{ funcionario.telefone }}
+          </h3>
+          <mat-icon>phone</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">E-MAIL :</h3>
+          <h3 ngClass="list-item-descricao">{{ funcionario.email }}</h3>
+          <mat-icon>email</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item ngClass="list-item">
+          <h3 class="list-item-title">DATA DE NASCIMENTO :</h3>
+          <h3 ngClass="list-item-descricao">
+            {{ funcionario.dataNascimento | date: "dd/MM/yyyy" }}
+          </h3>
+          <mat-icon>date_range</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">CIDADE :</h3>
+          <h3 ngClass="list-item-descricao">
+            {{ funcionario.cidade }}
+          </h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item ngClass="list-item">
+          <h3 class="list-item-title">TAG :</h3>
+          <h3 ngClass="list-item-descricao">{{ funcionario.tag }}</h3>
+          <mat-icon>credit_card</mat-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <h3 class="list-item-title">MATRICULA :</h3>
+          <h3 ngClass="list-item-descricao">
+            {{ funcionario.matricula }}
+          </h3>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card>
+  </mat-card>
+</div>

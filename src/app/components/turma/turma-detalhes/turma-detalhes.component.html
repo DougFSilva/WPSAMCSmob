@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-card class="card mat-elevation-z8">
+    <h1 class="list-title">{{ turma.codigo }} - DETALHES</h1>
+    <mat-list class="list">
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">CÓDIGO:</h3>
+        <h3 class="item-list-valor">{{ turma.codigo }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">HORÁRIO DE ENTRADA:</h3>
+        <h3 class="item-list-valor">{{ turma.entrada }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">HORÁRIO DE SAÍDA:</h3>
+        <h3 class="item-list-valor">{{ turma.saida }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">HORÁRIO DE SAÍDA PARA ALMOÇO:</h3>
+        <h3 class="item-list-valor">{{ turma.almocoSaida }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">HORÁRIO DE RETORNO DO ALMOÇO:</h3>
+        <h3 class="item-list-valor">{{ turma.almocoEntrada }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">TOLERÂNCIA PARA ENTRADA:</h3>
+        <h3 class="item-list-valor">{{ turma.toleranciaEntrada }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">TOLERÂNCIA PARA SAÍDA:</h3>
+        <h3 class="item-list-valor">{{ turma.toleranciaSaida }}</h3>
+      </mat-list-item>
+
+      <mat-list-item class="item-list">
+        <h3 class="item-list-chave">PERÍODO:</h3>
+        <h3 class="item-list-valor">{{ turma.periodo }}</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

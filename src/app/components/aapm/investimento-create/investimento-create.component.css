@@ -1,0 +1,46 @@
+.container{
+    width: 100%;
+    margin:auto;
+}
+
+.card{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: rgb(235, 235, 235);
+}
+
+.title{
+    font-weight: bold;
+    color: blueviolet;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.form-dataPagamento{
+    width: 49%;
+}
+
+.form-semestre{
+    width: 49%;
+    margin-left: 2%;
+}
+
+.form-recibo{
+    width: 100%;
+}
+
+.form-valor{
+    width: 50%;
+}
+
+.button-save{
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.button-cancel{
+    margin-top: 1rem;
+    width: 100%;
+}

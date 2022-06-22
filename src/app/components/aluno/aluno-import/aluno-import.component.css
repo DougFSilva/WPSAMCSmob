@@ -1,0 +1,46 @@
+.container {
+    margin: 2rem;
+}
+
+.title {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: blueviolet
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.header-count {
+    color: blueviolet;
+    font-weight: bold;
+    display: inline;
+    margin-right: 1rem;
+}
+
+.button-import {
+    float: right;
+}
+
+.card {
+    background-color: rgb(235, 235, 235);
+}
+
+.filter {
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+}
