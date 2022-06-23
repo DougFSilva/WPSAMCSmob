@@ -1,11 +1,12 @@
 import { Router } from "@angular/router";
-import { DialogComponent } from "./../dialog/dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
-import { AlarmeService } from "./../../services/alarme.service";
 import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Alarm } from "src/app/models/Alarm";
+import { AlarmeService } from "src/app/services/alarme.service";
 
 @Component({
   selector: "app-alarme",
@@ -111,7 +112,7 @@ export class AlarmeComponent implements OnInit {
 
   deleteById(id: number) {
     this.service.deleteById(id).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Alarme deletado com sucesso!", "Delete");
         this.findAll();
       },

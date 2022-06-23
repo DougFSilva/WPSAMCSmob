@@ -1,21 +1,21 @@
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Location } from '@angular/common';
 
-import { MatDialog } from "@angular/material/dialog";
-import { ToastrService } from "ngx-toastr";
-import { Ocorrencia } from "src/app/models/Ocorrencia";
-import { ActivatedRoute } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
-import { MatTableDataSource } from "@angular/material/table";
-import { DialogComponent } from "src/app/components/dialog/dialog.component";
-import { Location } from "@angular/common";
-import { Aluno } from "src/app/models/Aluno";
-import { Turma } from "src/app/models/Turma";
-import { Curso } from "src/app/models/Curso";
-import { PontoAluno } from "src/app/models/PontoAluno";
-import { SolicitacaoFORM } from "src/app/models/SolicitacaoFORM";
-import { SolicitacaoService } from "src/app/services/solicitacao.service";
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { Aluno } from 'src/app/models/Aluno';
+import { Turma } from 'src/app/models/Turma';
+import { Curso } from 'src/app/models/Curso';
+import { Ocorrencia } from 'src/app/models/Ocorrencia';
+import { PontoAluno } from 'src/app/models/PontoAluno';
+import { SolicitacaoFORM } from 'src/app/models/SolicitacaoFORM';
+import { SolicitacaoService } from 'src/app/services/solicitacao.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { AlunoService } from "src/app/services/aluno.service";
-import { CursoService } from "src/app/services/curso.service";
+import { AlunoService } from 'src/app/services/aluno.service';
+import { CursoService } from 'src/app/services/curso.service';
 
 export class PontoAlunoTable {
   data: string;
@@ -23,7 +23,7 @@ export class PontoAlunoTable {
   acao: string;
 
   constructor(pontoAluno: PontoAluno) {
-    let timestampSplit = pontoAluno.timestamp.split(" ");
+    let timestampSplit = pontoAluno.timestamp.split(' ');
     this.data = timestampSplit[0];
     this.horario = timestampSplit[1];
     this.acao = pontoAluno.entradaSaida;
@@ -31,64 +31,64 @@ export class PontoAlunoTable {
 }
 
 @Component({
-  selector: "app-aluno-detalhes",
-  templateUrl: "./aluno-detalhes.component.html",
-  styleUrls: ["./aluno-detalhes.component.css"],
+  selector: 'app-aluno-detalhes',
+  templateUrl: './aluno-detalhes.component.html',
+  styleUrls: ['./aluno-detalhes.component.css'],
 })
 export class AlunoDetalhesComponent implements OnInit {
   perfilUsuario: string;
   idAluno: number;
   aluno: Aluno = {
-    id: "",
+    id: '',
     matricula: null,
-    dataMatricula: "",
+    dataMatricula: '',
     dataCriacao: new Date(),
-    turma: "",
+    turma: '',
     numeroTurma: null,
-    curso: "",
-    nome: "",
-    sexo: "",
-    idade: "",
-    cidade: "",
-    rg: "",
-    dataNascimento: "",
-    email: "",
-    telefone: "",
+    curso: '',
+    nome: '',
+    sexo: '',
+    idade: '',
+    cidade: '',
+    rg: '',
+    dataNascimento: '',
+    email: '',
+    telefone: '',
     termoInternet: false,
     internetLiberada: false,
     desbloqueioTemporario: false,
-    entradaSaida: "",
-    status: "",
-    empresa: "",
+    entradaSaida: '',
+    status: '',
+    empresa: '',
     tag: null,
-    foto: "any",
+    foto: 'any',
   };
 
   turma: Turma = {
-    id: "",
-    codigo: "",
-    curso: "",
-    entrada: "",
-    saida: "",
-    almocoEntrada: "",
-    almocoSaida: "",
+    id: '',
+    codigo: '',
+    curso: '',
+    entrada: '',
+    saida: '',
+    almocoEntrada: '',
+    almocoSaida: '',
     toleranciaEntrada: null,
     toleranciaSaida: null,
-    periodo: "",
+    periodo: '',
     aulas: [],
-    imagem: "",
+    imagem: '',
   };
 
   curso: Curso = {
-    id: "",
-    modalidade: "",
-    areaTecnologica: "",
+    id: '',
+    modalidade: '',
+    areaTecnologica: '',
     turma: [],
-    imagem: "",
+    imagem: '',
   };
 
   solicitacaoFORM: SolicitacaoFORM = {
-    descricao: "",
+    descricao: '',
     status: false,
   };
 
@@ -98,22 +98,22 @@ export class AlunoDetalhesComponent implements OnInit {
   ELEMENT_DATA_ponto: PontoAlunoTable[] = [];
 
   displayedColumns: string[] = [
-    "data",
-    "tipo",
-    "registrado_por",
-    "descrição",
-    "bloqueio",
-    "acao",
+    'data',
+    'tipo',
+    'registrado_por',
+    'descrição',
+    'bloqueio',
+    'acao',
   ];
 
-  displayedColumnsPonto: string[] = ["data", "horario", "acao"];
+  displayedColumnsPonto: string[] = ['data', 'horario', 'acao'];
 
   displayedColumnsAapm: string[] = [
-    "data",
-    "semestre",
-    "recibo",
-    "valor",
-    "acao",
+    'data',
+    'semestre',
+    'recibo',
+    'valor',
+    'acao',
   ];
 
   dataSourceOcorrencia = new MatTableDataSource<Ocorrencia>(
@@ -136,8 +136,8 @@ export class AlunoDetalhesComponent implements OnInit {
 
   ngOnInit(): void {
     this.perfilUsuario = this.usuarioService.getPerfilUsuario();
-    this.ELEMENT_DATA_ocorrencia = this.route.snapshot.data["ocorrencia"];
-    this.idAluno = parseInt(this.route.snapshot.paramMap.get("id"));
+    this.ELEMENT_DATA_ocorrencia = this.route.snapshot.data['ocorrencia'];
+    this.idAluno = parseInt(this.route.snapshot.paramMap.get('id'));
     this.findById();
   }
 
@@ -148,7 +148,7 @@ export class AlunoDetalhesComponent implements OnInit {
         this.aluno.idade = this.getIdade(this.aluno.dataNascimento);
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -156,18 +156,17 @@ export class AlunoDetalhesComponent implements OnInit {
   deleteByIdDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.deleteById();
-      } else {
-        return;
       }
+      return;
     });
   }
 
   solicitarCrachaDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.solicitarCracha();
       }
       return;
@@ -175,53 +174,28 @@ export class AlunoDetalhesComponent implements OnInit {
   }
 
   solicitarCracha() {
-    this.solicitacaoFORM.descricao = "Impressão de crachá";
+    this.solicitacaoFORM.descricao = 'Impressão de crachá';
     this.solicitacaoFORM.status = false;
     this.solicitacaoService
       .create(this.solicitacaoFORM, this.aluno.id)
       .subscribe(
-        (response) => {
-          this.toast.success("Solicitação enviada com sucesso!", "Create");
+        () => {
+          this.toast.success('Solicitação enviada com sucesso!', 'Create');
         },
         (ex) => {
-          this.toast.error(ex.error.error, "Error");
-        }
-      );
-  }
-
-  solicitarInternetDialog() {
-    let dialog = this.dialog.open(DialogComponent);
-    dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
-        this.solicitarInternet();
-      }
-      return;
-    });
-  }
-
-  solicitarInternet() {
-    this.solicitacaoFORM.descricao = "Liberação de internet da AAPM";
-    this.solicitacaoFORM.status = false;
-    this.solicitacaoService
-      .create(this.solicitacaoFORM, this.aluno.id)
-      .subscribe(
-        (response) => {
-          this.toast.success("Solicitação enviada com sucesso!", "Create");
-        },
-        (ex) => {
-          this.toast.error(ex.error.error, "Error");
+          this.toast.error(ex.error.error, 'Error');
         }
       );
   }
 
   deleteById(): void {
     this.service.deleteById(this.aluno.id).subscribe(
-      (response) => {
-        this.toast.success("Aluno deletado com sucesso!", "Delete");
+      () => {
+        this.toast.success('Aluno deletado com sucesso!', 'Delete');
         this.location.back();
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -229,11 +203,10 @@ export class AlunoDetalhesComponent implements OnInit {
   updateStatusByIdDialog(status: string) {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.updateStatusById(status);
-      } else {
-        return;
       }
+      return;
     });
   }
 
@@ -241,12 +214,12 @@ export class AlunoDetalhesComponent implements OnInit {
     this.aluno.status = status;
     this.findCursoByTurmaCodigo();
     this.service.updateStatus(this.aluno.id, status).subscribe(
-      (response) => {
-        this.toast.success("Status alterado com sucesso!", "Update");
+      () => {
+        this.toast.success('Status alterado com sucesso!', 'Update');
         this.location.back();
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -265,8 +238,8 @@ export class AlunoDetalhesComponent implements OnInit {
   }
 
   getIdade(birthdate: string): string {
-    let birthdateSplit = birthdate.split("-");
-    const today = new Date().toLocaleDateString("en-CA").split("-");
+    let birthdateSplit = birthdate.split('-');
+    const today = new Date().toLocaleDateString('en-CA').split('-');
     let yearsDiff = parseInt(today[0]) - parseInt(birthdateSplit[0]);
     if (
       parseInt(today[1]) > parseInt(birthdateSplit[1]) ||

@@ -1,14 +1,17 @@
-import { DialogComponent } from "./../../dialog/dialog.component";
+
 import { MatDialog } from "@angular/material/dialog";
-import { TurmaService } from "./../../../services/turma.service";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { AlunoService } from "./../../../services/aluno.service";
 import { FormControl, Validators } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
+import { Location } from "@angular/common";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { AlunoFORM } from "src/app/models/AlunoFORM";
 import { Turma } from "src/app/models/Turma";
-import { Location } from "@angular/common";
+import { AlunoService } from "src/app/services/aluno.service";
+import { TurmaService } from "src/app/services/turma.service";
+
 
 @Component({
   selector: "app-aluno-create",

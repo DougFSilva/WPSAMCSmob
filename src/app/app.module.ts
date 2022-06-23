@@ -10,7 +10,6 @@ import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { HomeComponent } from "./components/home/home.component";
 import { MatCardModule } from "@angular/material/card";
-import { HeaderComponent } from "./components/header/header.component";
 import { TurmasComponent } from "./components/turma/turmas/turmas.component";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
@@ -54,8 +53,6 @@ import { EvadidosComponent } from './components/aluno/evadidos/evadidos.componen
 import {MatBadgeModule} from '@angular/material/badge';
 import { WebcamModule } from "ngx-webcam";
 import { PhotoSaveComponent } from './components/aluno/photo-save/photo-save.component';
-import { AapmCreateComponent } from './components/aapm/aapm-create/aapm-create.component';
-import { AapmUpdateComponent } from './components/aapm/aapm-update/aapm-update.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { RelatorioPontoComponent } from './components/aluno/relatorio-ponto/relatorio-ponto.component';
 import { RelatorioOcorrenciaComponent } from './components/aluno/relatorio-ocorrencia/relatorio-ocorrencia.component';
@@ -64,7 +61,6 @@ import { UsuarioCreateComponent } from './components/usuario/usuario-create/usua
 import { UsuarioUpdateComponent } from './components/usuario/usuario-update/usuario-update.component';
 import { UsuariosComponent } from './components/usuario/usuarios/usuarios.component';
 import { UsuarioDetalhesComponent } from './components/usuario/usuario-detalhes/usuario-detalhes.component';
-import { AlunoImportComponent } from './components/aluno/aluno-import/aluno-import.component';
 import { FuncionariosComponent } from './components/funcionario/funcionarios/funcionarios.component';
 import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
 import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
@@ -72,12 +68,7 @@ import { FuncionarioDetalhesComponent } from './components/funcionario/funcionar
 import { PhotoSaveFuncionarioComponent } from './components/funcionario/photo-save-funcionario/photo-save-funcionario.component';
 import { RelatorioPontoFuncionarioComponent } from './components/funcionario/relatorio-ponto-funcionario/relatorio-ponto-funcionario.component';
 import { CrachaFuncionarioComponent } from './components/funcionario/cracha-funcionario/cracha-funcionario.component';
-import { DashboardAapmComponent } from './components/aapm/dashboard-aapm/dashboard-aapm.component';
 import { NgChartsModule } from 'ng2-charts';
-import { InvestimentoCreateComponent } from './components/aapm/investimento-create/investimento-create.component';
-import { InvestimentoUpdateComponent } from './components/aapm/investimento-update/investimento-update.component';
-import { RelatorioPagamentosComponent } from './components/aapm/relatorio-pagamentos/relatorio-pagamentos.component';
-import { RelatorioInvestimentosComponent } from './components/aapm/relatorio-investimentos/relatorio-investimentos.component';
 import { OperacaoComponent} from './components/operacao/operacao.component'
 import { AlarmeComponent } from './components/alarme/alarme.component';
 
@@ -86,7 +77,6 @@ import { AlarmeComponent } from './components/alarme/alarme.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-    HeaderComponent,
     TurmasComponent,
     LoginComponent,
     CursosComponent,
@@ -108,8 +98,6 @@ import { AlarmeComponent } from './components/alarme/alarme.component';
     DialogComponent,
     EvadidosComponent,
     PhotoSaveComponent,
-    AapmCreateComponent,
-    AapmUpdateComponent,
     UploadFilesComponent,
     RelatorioPontoComponent,
     RelatorioOcorrenciaComponent,
@@ -118,7 +106,6 @@ import { AlarmeComponent } from './components/alarme/alarme.component';
     UsuarioUpdateComponent,
     UsuariosComponent,
     UsuarioDetalhesComponent,
-    AlunoImportComponent,
     FuncionariosComponent,
     FuncionarioCreateComponent,
     FuncionarioUpdateComponent,
@@ -126,11 +113,6 @@ import { AlarmeComponent } from './components/alarme/alarme.component';
     PhotoSaveFuncionarioComponent,
     RelatorioPontoFuncionarioComponent,
     CrachaFuncionarioComponent,
-    DashboardAapmComponent,
-    InvestimentoCreateComponent,
-    InvestimentoUpdateComponent,
-    RelatorioPagamentosComponent,
-    RelatorioInvestimentosComponent,
     OperacaoComponent,
     AlarmeComponent,
 

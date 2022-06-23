@@ -10,17 +10,14 @@ import { FuncionarioCreateComponent } from './components/funcionario/funcionario
 import { FuncionarioDetalhesComponent } from './components/funcionario/funcionario-detalhes/funcionario-detalhes.component';
 import { OperacaoComponent } from './components/operacao/operacao.component';
 import { AlarmeComponent } from './components/alarme/alarme.component';
-import { DashboardAapmComponent } from './components/aapm/dashboard-aapm/dashboard-aapm.component';
 import { PhotoSaveFuncionarioComponent } from './components/funcionario/photo-save-funcionario/photo-save-funcionario.component';
 import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
 import { FuncionariosComponent } from './components/funcionario/funcionarios/funcionarios.component';
-import { AlunoImportComponent } from './components/aluno/aluno-import/aluno-import.component';
 import { UsuarioUpdateComponent } from './components/usuario/usuario-update/usuario-update.component';
 import { UsuarioCreateComponent } from './components/usuario/usuario-create/usuario-create.component';
 import { UsuariosComponent } from './components/usuario/usuarios/usuarios.component';
 import { RelatorioOcorrenciaComponent } from './components/aluno/relatorio-ocorrencia/relatorio-ocorrencia.component';
 import { RelatorioPontoComponent } from './components/aluno/relatorio-ponto/relatorio-ponto.component';
-import { AapmCreateComponent } from './components/aapm/aapm-create/aapm-create.component';
 import { PhotoSaveComponent } from './components/aluno/photo-save/photo-save.component';
 import { OcorrenciaUpdateComponent } from './components/aluno/ocorrencia-update/ocorrencia-update.component';
 import { OcorrenciaCreateComponent } from './components/aluno/ocorrencia-create/ocorrencia-create.component';
@@ -40,7 +37,6 @@ import { NavComponent } from "./components/nav/nav.component";
 import { NgModule, Component } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { TurmasComponent } from "./components/turma/turmas/turmas.component";
-import { AapmUpdateComponent } from './components/aapm/aapm-update/aapm-update.component';
 
 const routes: Routes = [
   {
@@ -146,24 +142,6 @@ const routes: Routes = [
       {
         path: "aluno/relatorio/ocorrencia",
         component: RelatorioOcorrenciaComponent
-      },
-
-      {
-        path: "alunos/import",
-        component: AlunoImportComponent
-      },
-
-      {
-        path: "aapm",
-        component: DashboardAapmComponent,
-      },
-      {
-        path: "aapm/aluno/:id",
-        component: AapmCreateComponent,
-      },
-      {
-        path: "aapm/:id/update",
-        component: AapmUpdateComponent,
       },
 
       {

@@ -8,18 +8,19 @@
   </div>
 
   <div class="toolbar-p2">
-    <span class="toolbar-p2-text">SCAS</span>
+    <span class="toolbar-p2-text">SAMCS</span>
   </div>
 
   <div class="toolbar-p3">
     <span> {{usuarioLogado | slice:0:12}} </span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
 
         <mat-icon>account_circle</mat-icon>
 
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="logoutDialog()">
+        <mat-icon>logout</mat-icon>Logout
       </button>
     </mat-menu>
   </div>
@@ -55,11 +56,6 @@
         <i class="material-icons">people</i>
         Funcionarios
       </a>
-      <a *ngIf="perfilUsuario == 'ADMIN'" mat-list-item routerLink="aapm" (click)="drawer.toggle()">
-        <i class="material-icons">money</i>
-        AAPM
-      </a>
-
       <a mat-list-item (click)="logoutDialog()">
         <i class="material-icons">logout</i>
         Logout

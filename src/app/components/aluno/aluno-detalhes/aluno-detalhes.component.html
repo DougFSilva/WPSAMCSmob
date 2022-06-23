@@ -78,10 +78,6 @@
             <mat-icon>contacts</mat-icon>
             <span>Impressão de crachá</span>
           </button>
-          <button mat-menu-item (click)="solicitarInternetDialog()">
-            <mat-icon>network_wifi</mat-icon>
-            <span>Liberação de internet AAPM</span>
-          </button>
         </mat-menu>
       </div>
     </div>
@@ -171,31 +167,6 @@
             <mat-icon>date_range</mat-icon>
           </mat-list-item>
           <mat-divider></mat-divider>
-
-          <mat-list-item>
-            <h3 class="list-item-title">TERMO DE INTERNET :</h3>
-            <div *ngIf="aluno.termoInternet == true; else elseBlock">
-              <h3 ngClass="list-item-descricao">Entregue</h3>
-              <mat-icon>check</mat-icon>
-            </div>
-            <ng-template #elseBlock>
-              <h3 ngClass="list-item-descricao">Pendente</h3>
-              <mat-icon>close</mat-icon>
-            </ng-template>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-
-          <mat-list-item>
-            <h3 class="list-item-title">INTERNET LIBERADA :</h3>
-            <div *ngIf="aluno.internetLiberada == true; else elseBlock2">
-              <h3 ngClass="list-item-descricao">Liberada</h3>
-              <mat-icon>wifi</mat-icon>
-            </div>
-            <ng-template class="list-item-descricao" #elseBlock2>
-              <h3 ngClass="list-item-descricao">Bloqueada</h3>
-              <mat-icon>wifi_lock</mat-icon>
-            </ng-template>
-          </mat-list-item>
 
           <mat-divider></mat-divider>
         </mat-list>
