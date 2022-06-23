@@ -1,6 +1,6 @@
 .container {
   height: 100vh;
-  background-image: url("src/app/assets/img/background_login.jpg");
+  background-image: url("../../../assets/img/background_login.jpg");
   display: flex;
   justify-content: center;
   background-size: 120% 120%;
