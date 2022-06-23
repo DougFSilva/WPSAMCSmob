@@ -1,13 +1,14 @@
 import { Router } from "@angular/router";
-import { AlunoService } from "src/app/services/aluno.service";
-import { DialogComponent } from "./../dialog/dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
-import { SolicitacaoService } from "./../../services/solicitacao.service";
-import { Solicitacao } from "./../../models/Solicitacao";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Aluno } from "src/app/models/Aluno";
+import { Solicitacao } from "src/app/models/Solicitacao";
+import { SolicitacaoService } from "src/app/services/solicitacao.service";
+import { AlunoService } from "src/app/services/aluno.service";
 
 @Component({
   selector: "app-operacao",
@@ -106,7 +107,7 @@ export class OperacaoComponent implements OnInit {
 
   updateStatusSolicitacao(id: number, status: boolean) {
     this.service.updateStatus(id, status).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Solicitação fechada com sucesso!", "Update");
         this.findAll();
       },
@@ -128,7 +129,7 @@ export class OperacaoComponent implements OnInit {
 
   deleteById(id: number) {
     this.service.deleteById(id).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Solicitação deletada com sucesso!", "Delete");
         this.findAll();
       },

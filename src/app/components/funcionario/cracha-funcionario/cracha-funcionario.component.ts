@@ -1,29 +1,29 @@
-import { Funcionario } from "src/app/models/Funcionario";
-import { Component, Inject, OnInit } from "@angular/core";
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import jsPDF from "jspdf";
+import { Funcionario } from 'src/app/models/Funcionario';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import jsPDF from 'jspdf';
 
 @Component({
-  selector: "app-cracha-funcionario",
-  templateUrl: "./cracha-funcionario.component.html",
-  styleUrls: ["./cracha-funcionario.component.css"],
+  selector: 'app-cracha-funcionario',
+  templateUrl: './cracha-funcionario.component.html',
+  styleUrls: ['./cracha-funcionario.component.css'],
 })
 export class CrachaFuncionarioComponent implements OnInit {
   funcionario: Funcionario = {
     id: null,
     matricula: null,
-    nome: "",
-    sexo: "",
-    idade: "",
-    cidade: "",
-    rg: "",
-    dataNascimento: "",
-    email: "",
-    telefone: "",
-    entradaSaida: "",
-    empresa: "",
+    nome: '',
+    sexo: '',
+    idade: '',
+    cidade: '',
+    rg: '',
+    dataNascimento: '',
+    email: '',
+    telefone: '',
+    entradaSaida: '',
+    empresa: '',
     tag: null,
-    foto: "any",
+    foto: 'any',
   };
 
   nomeCurso: string;
@@ -35,18 +35,18 @@ export class CrachaFuncionarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.funcionario = this.data[0];
-    let nome = this.funcionario.nome.split(" ");
+    let nome = this.funcionario.nome.split(' ');
     this.nome = nome[0];
     let sobreNome = nome.slice(1, nome.length);
-    this.sobreNome = sobreNome.join(" ");
+    this.sobreNome = sobreNome.join(' ');
     console.log(this.sobreNome);
     this.rgTransform(this.funcionario.rg);
   }
 
   rgTransform(rg: string): void {
     if (rg.length > 7) {
-      rg.replace(/./g, "");
-      rg.replace(/-/g, "");
+      rg.replace(/./g, '');
+      rg.replace(/-/g, '');
       let rg1: string = rg.slice(0, 2);
       let rg2: string = rg.slice(2, 5);
       let rg3: string = rg.slice(5, 8);
@@ -61,22 +61,22 @@ export class CrachaFuncionarioComponent implements OnInit {
       let date = new Date(dataMatricula);
       this.validade = date
         .setFullYear(date.getFullYear() + 2)
-        .toLocaleString("pt-BR");
+        .toLocaleString('pt-BR');
     }
   }
 
   toPDF() {
     let pdf = new jsPDF({
-      orientation: "p",
-      unit: "px",
+      orientation: 'p',
+      unit: 'px',
       format: [220, 360],
     });
-    let html = window.document.getElementById("card");
+    let html = window.document.getElementById('card');
 
     pdf.html(html, {
       callback: function (doc) {
         doc.deletePage(2);
-        doc.output("dataurlnewwindow");
+        doc.output('dataurlnewwindow');
       },
     });
   }

@@ -1,27 +1,28 @@
-import { ActivatedRoute } from "@angular/router";
-import { DialogComponent } from "./../../dialog/dialog.component";
-import { ToastrService } from "ngx-toastr";
-import { MatDialog } from "@angular/material/dialog";
-import { UsuarioService } from "src/app/services/usuario.service";
-import { Component, OnInit } from "@angular/core";
-import { UsuarioFORM } from "src/app/models/UsuarioFORM";
-import { FormControl, Validators } from "@angular/forms";
-import { Location } from "@angular/common";
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { UsuarioFORM } from 'src/app/models/UsuarioFORM';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: "app-usuario-update",
-  templateUrl: "./usuario-update.component.html",
-  styleUrls: ["./usuario-update.component.css"],
+  selector: 'app-usuario-update',
+  templateUrl: './usuario-update.component.html',
+  styleUrls: ['./usuario-update.component.css'],
 })
 export class UsuarioUpdateComponent implements OnInit {
   id: number;
-  perfil: string = "";
+  perfil: string = '';
   usuario: UsuarioFORM = {
     id: null,
-    nome: "",
-    empresa: "",
-    username: "",
-    password: "",
+    nome: '',
+    empresa: '',
+    username: '',
+    password: '',
     perfis: [],
   };
 
@@ -38,7 +39,7 @@ export class UsuarioUpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = parseInt(this.route.snapshot.paramMap.get("id"));
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.findUserById();
   }
 
@@ -48,7 +49,7 @@ export class UsuarioUpdateComponent implements OnInit {
         this.usuario = response;
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -56,7 +57,7 @@ export class UsuarioUpdateComponent implements OnInit {
   updateDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.update();
       }
     });
@@ -69,8 +70,8 @@ export class UsuarioUpdateComponent implements OnInit {
       },
     ];
     this.service.updateById(this.id, this.usuario).subscribe(
-      (response) => {
-        this.toast.success("Usuário editado com sucesso!", "Update");
+      () => {
+        this.toast.success('Usuário editado com sucesso!', 'Update');
         this.return();
       },
       (ex) => {

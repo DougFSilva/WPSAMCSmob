@@ -1,11 +1,12 @@
 import { FormControl, Validators } from "@angular/forms";
-import { Funcionario } from "./../../../models/Funcionario";
-import { DialogComponent } from "./../../dialog/dialog.component";
-import { MatDialog } from "@angular/material/dialog";
-import { ToastrService } from "ngx-toastr";
-import { FuncionarioService } from "./../../../services/funcionario.service";
 import { Component, OnInit } from "@angular/core";
 import { Location } from "@angular/common";
+import { MatDialog } from "@angular/material/dialog";
+import { ToastrService } from "ngx-toastr";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Funcionario } from "src/app/models/Funcionario";
+import { FuncionarioService } from "src/app/services/funcionario.service";
 
 @Component({
   selector: "app-funcionario-create",
@@ -58,7 +59,7 @@ export class FuncionarioCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.funcionario).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Funcionário criado com sucesso!", "Create");
         this.return();
       },

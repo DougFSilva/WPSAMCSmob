@@ -1,36 +1,37 @@
-import { MatDialog } from "@angular/material/dialog";
-import { AlunoFORM } from "../../../models/AlunoFORM";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Turma } from "src/app/models/Turma";
-import { AlunoService } from "src/app/services/aluno.service";
-import { TurmaService } from "src/app/services/turma.service";
-import { ToastrService } from "ngx-toastr";
-import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
+import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
+
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { Turma } from 'src/app/models/Turma';
+import { AlunoFORM } from 'src/app/models/AlunoFORM';
+import { AlunoService } from 'src/app/services/aluno.service';
+import { TurmaService } from 'src/app/services/turma.service';
 
 @Component({
-  selector: "app-aluno-update",
-  templateUrl: "./aluno-update.component.html",
-  styleUrls: ["./aluno-update.component.css"],
+  selector: 'app-aluno-update',
+  templateUrl: './aluno-update.component.html',
+  styleUrls: ['./aluno-update.component.css'],
 })
 export class AlunoUpdateComponent implements OnInit {
   aluno: AlunoFORM = {
-    id: "",
-    nome: "",
-    sexo: "",
+    id: '',
+    nome: '',
+    sexo: '',
     idade: 0,
-    cidade: "",
-    rg: "",
-    dataNascimento: "",
-    email: "",
-    telefone: "",
-    turma: "",
+    cidade: '',
+    rg: '',
+    dataNascimento: '',
+    email: '',
+    telefone: '',
+    turma: '',
     numeroTurma: null,
     matricula: 0,
-    dataMatricula: "",
-    empresa: "",
+    dataMatricula: '',
+    empresa: '',
     tag: 0,
   };
 
@@ -49,14 +50,13 @@ export class AlunoUpdateComponent implements OnInit {
     private turmaService: TurmaService,
     private service: AlunoService,
     private toast: ToastrService,
-    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.aluno.id = this.route.snapshot.paramMap.get("id");
+    this.aluno.id = this.route.snapshot.paramMap.get('id');
     this.findAllTurmas();
     this.findById();
   }
@@ -80,7 +80,7 @@ export class AlunoUpdateComponent implements OnInit {
         this.aluno = response;
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -90,15 +90,15 @@ export class AlunoUpdateComponent implements OnInit {
       (response) => {
         response.forEach((res) => {
           if (
-            !res.codigo.includes("FORMANDO") &&
-            !res.codigo.includes("EVADIDO")
+            !res.codigo.includes('FORMANDO') &&
+            !res.codigo.includes('EVADIDO')
           ) {
             this.turmas.push(res);
           }
         });
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -106,11 +106,10 @@ export class AlunoUpdateComponent implements OnInit {
   updateDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.update();
-      } else {
-        return;
       }
+        return;
     });
   }
 
@@ -119,19 +118,19 @@ export class AlunoUpdateComponent implements OnInit {
       (response) => {
         this.toast.success(
           `Aluno ${response.nome} editado com sucesso!`,
-          "Update"
+          'Update'
         );
         this.location.back();
       },
       (ex) => {
         if (ex.status === 403) {
           this.toast.error(
-            "Você não tem autorização para essa operação",
-            "Error"
+            'Você não tem autorização para essa operação',
+            'Error'
           );
           return;
         }
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }

@@ -1,11 +1,13 @@
-import { DialogComponent } from "./../../dialog/dialog.component";
+
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { Component, OnInit } from "@angular/core";
 import { Location } from "@angular/common";
+import { MatTableDataSource } from "@angular/material/table";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Usuario } from "src/app/models/Usuario";
 import { UsuarioService } from "src/app/services/usuario.service";
-import { MatTableDataSource } from "@angular/material/table";
 
 export interface PeriodicElement {
   name: string;
@@ -46,7 +48,6 @@ export class UsuariosComponent implements OnInit {
   constructor(
     private service: UsuarioService,
     private toast: ToastrService,
-    private location: Location,
     private dialog: MatDialog
   ) {}
 
@@ -84,7 +85,7 @@ export class UsuariosComponent implements OnInit {
 
   deleteById(id: number): void {
     this.service.deleteById(id).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Usuário deletado com sucesso!", "Delete");
         this.findAll();
       },

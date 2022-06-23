@@ -22,94 +22,99 @@
         value=""
       />
     </mat-form-field>
-      <div class="cards" *ngFor="let turma of turmasFilter">
-        <mat-card class="card mat-elevation-z8">
-          <mat-card-header class="card-header">
-            <div class="card-header-div-title">
-              <mat-card-title routerLink="/turma/{{ turma.id }}/alunos">
-                <h2>{{ turma.codigo }}</h2>
-              </mat-card-title>
-            </div>
-            <div class="card-header-div-menu">
+    <div class="cards" *ngFor="let turma of turmasFilter">
+      <mat-card class="card mat-elevation-z8">
+        <mat-card-header class="card-header">
+          <div class="card-header-div-title">
+            <mat-card-title routerLink="/turma/{{ turma.id }}/alunos">
+              <h2>{{ turma.codigo }}</h2>
+            </mat-card-title>
+          </div>
+          <div class="card-header-div-menu">
+            <button
+              class="card-menu"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
               <button
-                class="card-menu"
-                mat-icon-button
-                [matMenuTriggerFor]="menu"
-                aria-label="Example icon-button with a menu"
+                *ngIf="
+                  turma.codigo != 'FORMANDO' &&
+                  turma.codigo != 'EVADIDO' &&
+                  perfilUsuario == 'ADMIN'
+                "
+                routerLink="/turma/{{ turma.id }}/update"
+                mat-menu-item
               >
-                <mat-icon>more_vert</mat-icon>
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button
+                *ngIf="
+                  turma.codigo != 'FORMANDO' &&
+                  turma.codigo != 'EVADIDO' &&
+                  perfilUsuario == 'ADMIN'
+                "
+                (click)="deleteTurmaByIdDialog(turma.id)"
+                mat-menu-item
+              >
+                <mat-icon>delete_forever</mat-icon>
+                <span>Deletar</span>
+              </button>
+              <button
+                *ngIf="perfilUsuario == 'ADMIN'"
+                (click)="imageUpload(turma.id, turma.codigo)"
+                mat-menu-item
+              >
+                <mat-icon>add_photo_alternate</mat-icon>
+                <span>Imagem</span>
+              </button>
+              <button routerLink="/turma/{{ turma.id }}" mat-menu-item>
+                <mat-icon>details</mat-icon>
+                <span>Detalhes</span>
+              </button>
+              <button
+                *ngIf="perfilUsuario == 'ADMIN'"
+                mat-menu-item
+                [mat-menu-trigger-for]="MoveMenu"
+              >
+                <mat-icon>shuffle</mat-icon>
+                <span>Mover Alunos para</span>
               </button>
 
-              <mat-menu #menu="matMenu">
-                <button
-                  *ngIf="
-                    turma.codigo != 'FORMANDO' && turma.codigo != 'EVADIDO' && perfilUsuario == 'ADMIN'
-                  "
-                  routerLink="/turma/{{ turma.id }}/update"
-                  mat-menu-item
-                >
-                  <mat-icon>edit</mat-icon>
-                  <span>Editar</span>
-                </button>
-                <button
-                  *ngIf="
-                    turma.codigo != 'FORMANDO' && turma.codigo != 'EVADIDO' && perfilUsuario == 'ADMIN'
-                  "
-                  (click)="deleteTurmaByIdDialog(turma.id)"
-                  mat-menu-item
-                >
-                  <mat-icon>delete_forever</mat-icon>
-                  <span>Deletar</span>
-                </button>
-                <button
-                  *ngIf="perfilUsuario == 'ADMIN'"
-                  (click)="imageUpload(turma.id, turma.codigo)"
-                  mat-menu-item
-                >
-                  <mat-icon>add_photo_alternate</mat-icon>
-                  <span>Imagem</span>
-                </button>
-                <button routerLink="/turma/{{ turma.id }}" mat-menu-item>
-                  <mat-icon>details</mat-icon>
-                  <span>Detalhes</span>
-                </button>
-                <button
-                 *ngIf="perfilUsuario == 'ADMIN'"
-                  mat-menu-item [mat-menu-trigger-for]="MoveMenu">
-                  <mat-icon>shuffle</mat-icon>
-                  <span>Mover Alunos para</span>
-                </button>
+              <mat-menu #MoveMenu="matMenu">
+                <div *ngFor="let turma_ of curso.turma">
+                  <button
+                    *ngIf="turma_.codigo != 'EVADIDO'"
+                    (click)="moveDialog(turma.id, turma_.id)"
+                    mat-menu-item
+                  >
+                    <mat-icon>people_outline</mat-icon>
+                    <span>{{ turma_.codigo }}</span>
+                  </button>
+                </div>
+              </mat-menu>
+            </mat-menu>
+          </div>
+        </mat-card-header>
 
-                <mat-menu #MoveMenu="matMenu">
-                  <div *ngFor="let turma_ of curso.turma">
-                    <button
-                      *ngIf="turma_.codigo != 'EVADIDO'"
-                      (click)="moveDialog(turma.id, turma_.id)"
-                      mat-menu-item
-                    >
-                      <mat-icon>people_outline</mat-icon>
-                      <span>{{ turma_.codigo }}</span>
-                    </button>
-                  </div>
-                </mat-menu>
+        <img
+          routerLink="/turma/{{ turma.id }}/alunos"
+          mat-card-image
+          [src]="turma.imagem"
+          alt="Imagem da turma"
+        />
 
-                </mat-menu>
-            </div>
-          </mat-card-header>
-
-          <img
-            routerLink="/turma/{{ turma.id }}/alunos"
-            mat-card-image
-            [src]="turma.imagem"
-            alt="Imagem da turma"
-          />
-
-          <mat-card-content class="conteudo">
-            <p>
-              {{ curso.modalidade }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
+        <mat-card-content class="conteudo">
+          <p>
+            {{ curso.modalidade }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

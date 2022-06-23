@@ -1,14 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { ToastrService } from "ngx-toastr";
-import { Aluno } from "src/app/models/Aluno";
-import { Curso } from "src/app/models/Curso";
-import { AlunoService } from "src/app/services/aluno.service";
-import { CursoService } from "src/app/services/curso.service";
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
+import { Aluno } from 'src/app/models/Aluno';
+import { Curso } from 'src/app/models/Curso';
+import { AlunoService } from 'src/app/services/aluno.service';
+import { CursoService } from 'src/app/services/curso.service';
 
 @Component({
-  selector: "app-evadidos",
-  templateUrl: "./evadidos.component.html",
-  styleUrls: ["./evadidos.component.css"],
+  selector: 'app-evadidos',
+  templateUrl: './evadidos.component.html',
+  styleUrls: ['./evadidos.component.css'],
 })
 export class EvadidosComponent implements OnInit {
   evadidos: Aluno[];
@@ -17,10 +18,10 @@ export class EvadidosComponent implements OnInit {
   cursos: Curso[] = [];
   curso: Curso = {
     id: 0,
-    modalidade: "",
-    areaTecnologica: "Todos",
+    modalidade: '',
+    areaTecnologica: 'Todos',
     turma: [],
-    imagem: "",
+    imagem: '',
   };
   totalAlunos: number;
 
@@ -36,13 +37,13 @@ export class EvadidosComponent implements OnInit {
   }
 
   findAll() {
-    this.service.findAllByStatus("EVADIDO").subscribe(
+    this.service.findAllByStatus('EVADIDO').subscribe(
       (response) => {
         this.evadidos = response;
         this.applyFilter();
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -61,7 +62,7 @@ export class EvadidosComponent implements OnInit {
       return;
     }
     this.service
-      .findAllByCurso(this.idCursoSelected, "EVADIDO")
+      .findAllByCurso(this.idCursoSelected, 'EVADIDO')
       .subscribe((response) => {
         this.evadidos = response;
         this.applyFilter();
@@ -69,8 +70,8 @@ export class EvadidosComponent implements OnInit {
   }
 
   applyFilter() {
-    var filterValue = <HTMLInputElement>document.getElementById("filter");
-    if (filterValue.value == "") {
+    var filterValue = <HTMLInputElement>document.getElementById('filter');
+    if (filterValue.value == '') {
       this.evadidosFilter = this.evadidos;
     }
     this.evadidosFilter = this.evadidos.filter((aluno) => {

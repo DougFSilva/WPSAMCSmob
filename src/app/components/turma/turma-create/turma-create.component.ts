@@ -1,13 +1,13 @@
 import { MatDialog } from "@angular/material/dialog";
-import { TurmaService } from "src/app/services/turma.service";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { Turma } from "src/app/models/Turma";
 import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
 
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Turma } from "src/app/models/Turma";
+import { TurmaService } from "src/app/services/turma.service";
 @Component({
   selector: "app-turma-create",
   templateUrl: "./turma-create.component.html",
@@ -44,7 +44,6 @@ export class TurmaCreateComponent implements OnInit {
   constructor(
     private service: TurmaService,
     private toast: ToastrService,
-    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private dialog: MatDialog

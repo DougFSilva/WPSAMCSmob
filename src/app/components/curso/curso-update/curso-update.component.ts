@@ -2,12 +2,13 @@ import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { CursoService } from "./../../../services/curso.service";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { Curso } from "src/app/models/Curso";
 import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Curso } from "src/app/models/Curso";
+import { CursoService } from "src/app/services/curso.service";
 
 @Component({
   selector: "app-curso-update",
@@ -26,7 +27,6 @@ export class CursoUpdateComponent implements OnInit {
   constructor(
     private service: CursoService,
     private toast: ToastrService,
-    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private dialog: MatDialog
@@ -57,9 +57,8 @@ export class CursoUpdateComponent implements OnInit {
     dialog.afterClosed().subscribe((response) => {
       if (response == "true") {
         this.update();
-      } else {
-        return;
       }
+        return;
     });
   }
 

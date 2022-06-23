@@ -1,11 +1,12 @@
-import { UsuarioService } from './../../../services/usuario.service';
-import { DialogComponent } from "./../../dialog/dialog.component";
-import { Funcionario } from "./../../../models/Funcionario";
+
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
-import { FuncionarioService } from "./../../../services/funcionario.service";
 import { Component, OnInit } from "@angular/core";
-import { Location } from "@angular/common";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Funcionario } from "src/app/models/Funcionario";
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { FuncionarioService } from "src/app/services/funcionario.service";
 
 @Component({
   selector: "app-funcionarios",

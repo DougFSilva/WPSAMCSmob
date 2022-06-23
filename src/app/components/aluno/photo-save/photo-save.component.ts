@@ -1,26 +1,24 @@
-import { MatDialog } from "@angular/material/dialog";
-import { ToastrService } from "ngx-toastr";
-import { ActivatedRoute } from "@angular/router";
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 import {
   Component,
   ElementRef,
   OnInit,
-  VERSION,
   ViewChild,
-} from "@angular/core";
-import { WebcamImage, WebcamInitError } from "ngx-webcam";
-import { Observable, Subject } from "rxjs";
-import Cropper from "cropperjs";
-import { AlunoService } from "src/app/services/aluno.service";
-import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
-import { UploadingFilesService } from "src/app/services/uploading-files.service";
-import { PhotoFORM } from "src/app/models/PhotoFORM";
+} from '@angular/core';
+import { WebcamImage, WebcamInitError } from 'ngx-webcam';
+import { Observable, Subject } from 'rxjs';
+import Cropper from 'cropperjs';
+import { Location } from '@angular/common';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { PhotoFORM } from 'src/app/models/PhotoFORM';
+import { AlunoService } from 'src/app/services/aluno.service';
 
 @Component({
-  selector: "app-photo-save",
-  templateUrl: "./photo-save.component.html",
-  styleUrls: ["./photo-save.component.css"],
+  selector: 'app-photo-save',
+  templateUrl: './photo-save.component.html',
+  styleUrls: ['./photo-save.component.css'],
 })
 export class PhotoSaveComponent implements OnInit {
   webCamWidth;
@@ -35,14 +33,14 @@ export class PhotoSaveComponent implements OnInit {
   idAluno: number = null;
 
   // CropperJs Variables
-  @ViewChild("image", { static: false })
+  @ViewChild('image', { static: false })
   public imageElementRef: ElementRef;
   cropper: Cropper;
   imageDestination: string;
   // CropperJs Variables
 
   // Media resolution check
-  mobileMedia = window.matchMedia("(max-width: 1024px)");
+  mobileMedia = window.matchMedia('(max-width: 1024px)');
 
   checkMedia(mobileMedia) {
     if (mobileMedia.matches) {
@@ -59,14 +57,13 @@ export class PhotoSaveComponent implements OnInit {
     private toast: ToastrService,
     private location: Location,
     private dialog: MatDialog,
-    private uploadingFilesService: UploadingFilesService
   ) {
     this.checkMedia(this.mobileMedia);
     this.mobileMedia.addListener(this.checkMedia);
   }
 
   ngOnInit(): void {
-    this.idAluno = parseInt(this.route.snapshot.paramMap.get("id"));
+    this.idAluno = parseInt(this.route.snapshot.paramMap.get('id'));
   }
 
   handleInitError(error: WebcamInitError) {
@@ -95,9 +92,6 @@ export class PhotoSaveComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 
-  // Web Cam Functions
-
-  // CropperJs Functions
   intializeCropper() {
     this.cropper = new Cropper(this.imageElementRef.nativeElement, {
       zoomable: false,
@@ -109,7 +103,7 @@ export class PhotoSaveComponent implements OnInit {
           width: 200,
           height: 267,
         });
-        this.imageDestination = canvas.toDataURL("image/jpg", 1);
+        this.imageDestination = canvas.toDataURL('image/jpg', 1);
       },
     });
   }
@@ -117,7 +111,7 @@ export class PhotoSaveComponent implements OnInit {
   saveCroppedImageDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.saveCroppedImage();
       } else {
         return;
@@ -128,12 +122,12 @@ export class PhotoSaveComponent implements OnInit {
   saveCroppedImage() {
     const photo = new PhotoFORM(this.imageDestination);
     this.alunoService.saveImage(photo, this.idAluno).subscribe(
-      (response) => {
-        this.toast.success("Foto salva com sucesso", "Save");
+      () => {
+        this.toast.success('Foto salva com sucesso', 'Save');
         this.location.back();
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }

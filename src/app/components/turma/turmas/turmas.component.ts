@@ -1,7 +1,8 @@
 import { ToastrService } from "ngx-toastr";
-import { TurmaService } from "./../../../services/turma.service";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+
 import { Turma } from "src/app/models/Turma";
+import { TurmaService } from "src/app/services/turma.service";
 
 @Component({
   selector: "app-turmas",

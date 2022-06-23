@@ -1,10 +1,13 @@
 <mat-toolbar class="toolbar">
-
   <div class="toolbar-p1">
-    <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button
+      mat-icon-button
+      (click)="drawer.toggle()"
+      class="example-icon"
+      aria-label="icon-button with menu icon"
+    >
       <mat-icon class="botao-menu">menu</mat-icon>
     </button>
-
   </div>
 
   <div class="toolbar-p2">
@@ -12,11 +15,13 @@
   </div>
 
   <div class="toolbar-p3">
-    <span> {{usuarioLogado | slice:0:12}} </span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
-
-        <mat-icon>account_circle</mat-icon>
-
+    <span> {{ usuarioLogado | slice: 0:12 }} </span>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="icon-button with a menu"
+    >
+      <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="logoutDialog()">
@@ -24,14 +29,16 @@
       </button>
     </mat-menu>
   </div>
-
 </mat-toolbar>
 
 <mat-drawer-container class="container" autosize>
-
-  <mat-drawer #drawer class="sideNav"  mode="over" >
+  <mat-drawer #drawer class="sideNav" mode="over">
     <mat-nav-list class="nav-list">
-      <img class="img-logo" src="assets/img/logo.jpg" alt="imagem de navegação" />
+      <img
+        class="img-logo"
+        src="assets/img/logo.jpg"
+        alt="imagem de navegação"
+      />
       <a mat-list-item routerLink="home" (click)="drawer.toggle()">
         <i class="material-icons">home</i>
         home
@@ -62,7 +69,6 @@
       </a>
     </mat-nav-list>
   </mat-drawer>
-
 
   <router-outlet></router-outlet>
 </mat-drawer-container>

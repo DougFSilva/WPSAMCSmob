@@ -2,11 +2,12 @@ import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { OcorrenciaService } from "src/app/services/ocorrencia.service";
 import { Location } from "@angular/common";
-import { Ocorrencia } from "src/app/models/Ocorrencia";
 import { FormControl, Validators } from "@angular/forms";
-import { DialogComponent } from "../../dialog/dialog.component";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Ocorrencia } from "src/app/models/Ocorrencia";
+import { OcorrenciaService } from "src/app/services/ocorrencia.service";
 
 @Component({
   selector: "app-ocorrencia-update",
@@ -69,7 +70,7 @@ export class OcorrenciaUpdateComponent implements OnInit {
 
   save(): void {
     this.service.update(this.id, this.ocorrencia).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Ocorrencia editada com sucesso!", "Update");
         this.location.back();
       },

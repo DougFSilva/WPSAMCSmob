@@ -1,13 +1,15 @@
-import { AlunoService } from "src/app/services/aluno.service";
+
 import { MatDialog } from "@angular/material/dialog";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { AuthService } from "src/app/services/auth.service";
-import { DialogComponent } from "../dialog/dialog.component";
-import { UploadFilesComponent } from "../upload-files/upload-files.component";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { UploadFilesComponent } from "src/app/components/upload-files/upload-files.component";
+import { AlunoService } from "src/app/services/aluno.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-nav",

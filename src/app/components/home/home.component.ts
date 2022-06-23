@@ -1,18 +1,18 @@
 import { MatTableDataSource } from "@angular/material/table";
 import { ToastrService } from "ngx-toastr";
-import { Aluno } from "src/app/models/Aluno";
-import { CursoService } from "src/app/services/curso.service";
-import { AlunoService } from "src/app/services/aluno.service";
 import { BaseChartDirective } from "ng2-charts";
 import {
   Component,
   OnInit,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from "@angular/core";
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from "chart.js";
 import DataLabelsPlugin from "chartjs-plugin-datalabels";
+
+import { Aluno } from "src/app/models/Aluno";
+import { CursoService } from "src/app/services/curso.service";
+import { AlunoService } from "src/app/services/aluno.service";
 
 @Component({
   selector: "app-home",

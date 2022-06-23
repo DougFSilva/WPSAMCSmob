@@ -1,26 +1,26 @@
-import { MatDialog } from "@angular/material/dialog";
-import { AlunoService } from "./../../../services/aluno.service";
-import { Component, OnInit } from "@angular/core";
-import { Toast, ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
-import { Aluno } from "src/app/models/Aluno";
-import { DialogComponent } from "../../dialog/dialog.component";
+import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { Aluno } from 'src/app/models/Aluno';
+import { AlunoService } from 'src/app/services/aluno.service';
 
 @Component({
-  selector: "app-alunos",
-  templateUrl: "./alunos.component.html",
-  styleUrls: ["./alunos.component.css"],
+  selector: 'app-alunos',
+  templateUrl: './alunos.component.html',
+  styleUrls: ['./alunos.component.css'],
 })
 export class AlunosComponent implements OnInit {
   alunos: Aluno[];
   alunosFilter: Aluno[];
-  filtrarPor: string = "nome";
+  filtrarPor: string = 'nome';
   totalAlunos: number;
 
   constructor(
     private toast: ToastrService,
     private service: AlunoService,
-    private router: Router,
     private dialog: MatDialog
   ) {}
 
@@ -29,13 +29,13 @@ export class AlunosComponent implements OnInit {
   }
 
   findAllAtivos() {
-    this.service.findAllByStatus("ATIVO").subscribe(
+    this.service.findAllByStatus('ATIVO').subscribe(
       (response) => {
         this.alunos = response;
         this.applyFilter();
       },
       (ex) => {
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
@@ -43,39 +43,38 @@ export class AlunosComponent implements OnInit {
   deleteByIdDialog(id: number) {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.deleteById(id);
-      } else {
-        return;
       }
+        return;
     });
   }
 
   deleteById(id: number) {
     this.service.deleteById(id).subscribe(
       () => {
-        this.toast.success("Aluno deletado com sucesso!", "Delete");
+        this.toast.success('Aluno deletado com sucesso!', 'Delete');
         this.findAllAtivos();
       },
       (ex) => {
         if (ex.status === 403) {
           this.toast.error(
-            "Você não tem autorização para essa operação",
-            "Error"
+            'Você não tem autorização para essa operação',
+            'Error'
           );
           return;
         }
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }
 
   applyFilter() {
-    var filterValue = <HTMLInputElement>document.getElementById("filter");
-    if (filterValue.value == "") {
+    var filterValue = <HTMLInputElement>document.getElementById('filter');
+    if (filterValue.value == '') {
       this.alunosFilter = this.alunos;
     } else {
-      if (this.filtrarPor == "nome") {
+      if (this.filtrarPor == 'nome') {
         this.alunosFilter = this.alunos.filter((aluno) => {
           if (aluno.nome != null) {
             return aluno.nome
@@ -84,7 +83,7 @@ export class AlunosComponent implements OnInit {
           }
           return false;
         });
-      } else if (this.filtrarPor == "tag") {
+      } else if (this.filtrarPor == 'tag') {
         this.alunosFilter = this.alunos.filter((aluno) => {
           if (aluno.tag != null) {
             return aluno.tag
@@ -93,7 +92,7 @@ export class AlunosComponent implements OnInit {
           }
           return false;
         });
-      } else if (this.filtrarPor == "matricula") {
+      } else if (this.filtrarPor == 'matricula') {
         this.alunosFilter = this.alunos.filter((aluno) => {
           if (aluno.matricula != null) {
             return aluno.matricula
@@ -108,7 +107,7 @@ export class AlunosComponent implements OnInit {
   }
 
   isPresent(entradaSaida) {
-    if (entradaSaida == "SAIDA" || entradaSaida == "ALMOCO_SAIDA") {
+    if (entradaSaida == 'SAIDA' || entradaSaida == 'ALMOCO_SAIDA') {
       return true;
     } else {
       return false;

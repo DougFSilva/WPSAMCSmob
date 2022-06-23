@@ -1,27 +1,25 @@
-import { Subject, Observable } from "rxjs";
-import { UploadingFilesService } from "./../../../services/uploading-files.service";
-import { MatDialog } from "@angular/material/dialog";
-import { Router } from "@angular/router";
-import { FormControl, Validators } from "@angular/forms";
-import { ToastrService } from "ngx-toastr";
-import { CursoService } from "./../../../services/curso.service";
-import { Component, OnInit } from "@angular/core";
-import { Curso } from "src/app/models/Curso";
-import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
+import { MatDialog } from '@angular/material/dialog';
+import { FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { Curso } from 'src/app/models/Curso';
+import { CursoService } from 'src/app/services/curso.service';
 
 @Component({
-  selector: "app-curso-create",
-  templateUrl: "./curso-create.component.html",
-  styleUrls: ["./curso-create.component.css"],
+  selector: 'app-curso-create',
+  templateUrl: './curso-create.component.html',
+  styleUrls: ['./curso-create.component.css'],
 })
 export class CursoCreateComponent implements OnInit {
   curso: Curso = {
     id: null,
-    modalidade: "",
-    areaTecnologica: "",
+    modalidade: '',
+    areaTecnologica: '',
     turma: [],
-    imagem: "",
+    imagem: '',
   };
 
   uploadFile: any;
@@ -44,7 +42,7 @@ export class CursoCreateComponent implements OnInit {
   createDialog() {
     let dialog = this.dialog.open(DialogComponent);
     dialog.afterClosed().subscribe((response) => {
-      if (response == "true") {
+      if (response == 'true') {
         this.create();
       } else {
         return;
@@ -55,18 +53,18 @@ export class CursoCreateComponent implements OnInit {
   create(): void {
     this.service.create(this.curso).subscribe(
       () => {
-        this.toast.success("Curso cadastrado com sucesso!", "Create");
+        this.toast.success('Curso cadastrado com sucesso!', 'Create');
         this.location.back();
       },
       (ex) => {
         if (ex.status === 403) {
           this.toast.error(
-            "Você não tem autorização para essa operação",
-            "Error"
+            'Você não tem autorização para essa operação',
+            'Error'
           );
           return;
         }
-        this.toast.error(ex.error.error, "Error");
+        this.toast.error(ex.error.error, 'Error');
       }
     );
   }

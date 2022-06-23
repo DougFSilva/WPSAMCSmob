@@ -1,10 +1,11 @@
-import { UsuarioLogado } from "./../../models/UsuarioLogado";
-import { AuthService } from "../../services/auth.service";
-import { Autenticacao } from "./../../models/Autenticacao";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
+
+import { UsuarioLogado } from "src/app/models/UsuarioLogado";
+import { Autenticacao } from "src/app/models/Autenticacao";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-login",

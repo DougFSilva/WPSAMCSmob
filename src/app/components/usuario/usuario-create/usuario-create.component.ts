@@ -1,11 +1,13 @@
-import { DialogComponent } from "./../../dialog/dialog.component";
+
 import { ToastrService } from "ngx-toastr";
 import { MatDialog } from "@angular/material/dialog";
-import { UsuarioService } from "src/app/services/usuario.service";
 import { Component, OnInit } from "@angular/core";
-import { UsuarioFORM } from "src/app/models/UsuarioFORM";
 import { FormControl, Validators } from "@angular/forms";
 import { Location } from "@angular/common";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { UsuarioFORM } from "src/app/models/UsuarioFORM";
+import { UsuarioService } from "src/app/services/usuario.service";
 
 @Component({
   selector: "app-usuario-create",

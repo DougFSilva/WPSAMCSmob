@@ -1,9 +1,10 @@
-import { Ocorrencia } from "src/app/models/Ocorrencia";
 import { Component, Inject, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+
 import { Aluno } from "src/app/models/Aluno";
+import { Ocorrencia } from "src/app/models/Ocorrencia";
 
 @Component({
   selector: "app-relatorio-ocorrencia",

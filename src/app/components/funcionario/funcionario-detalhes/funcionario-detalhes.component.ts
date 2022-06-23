@@ -1,17 +1,17 @@
-import { UsuarioService } from './../../../services/usuario.service';
+
 
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-
-import { MatTableDataSource } from "@angular/material/table";
-import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Location } from "@angular/common";
+import { MatTableDataSource } from "@angular/material/table";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Funcionario } from "src/app/models/Funcionario";
 import { PontoFuncionario } from "src/app/models/PontoFuncionario";
-import { PontoFuncionarioService } from "src/app/services/ponto-funcionario.service";
 import { FuncionarioService } from "src/app/services/funcionario.service";
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 export class PontoFuncionarioTable {
   data: string;
@@ -88,9 +88,8 @@ export class FuncionarioDetalhesComponent implements OnInit {
     dialog.afterClosed().subscribe((response) => {
       if (response == "true") {
         this.deleteById();
-      } else {
-        return;
       }
+        return;
     });
   }
 

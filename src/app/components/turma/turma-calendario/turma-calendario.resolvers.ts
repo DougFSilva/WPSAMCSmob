@@ -5,7 +5,7 @@ import {
   Resolve,
   RouterStateSnapshot,
 } from "@angular/router";
-import { AulaService } from "./../../../services/aula.service";
+import { AulaService } from "src/app/services/aula.service";
 import { Aula } from "src/app/models/Aula";
 
 @Injectable({ providedIn: "root" })

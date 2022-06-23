@@ -1,9 +1,11 @@
-import { CursoService } from "./../../../services/curso.service";
+
 import { ToastrService } from "ngx-toastr";
-import { AlunoService } from "./../../../services/aluno.service";
 import { Component, OnInit } from "@angular/core";
+
 import { Aluno } from "src/app/models/Aluno";
 import { Curso } from "src/app/models/Curso";
+import { AlunoService } from "src/app/services/aluno.service";
+import { CursoService } from "src/app/services/curso.service";
 
 @Component({
   selector: "app-formandos",

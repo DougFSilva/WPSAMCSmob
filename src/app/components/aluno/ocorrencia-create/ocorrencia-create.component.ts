@@ -1,12 +1,13 @@
 import { MatDialog } from "@angular/material/dialog";
-import { OcorrenciaFORM } from "./../../../models/OcorrenciaFORM";
 import { ActivatedRoute } from "@angular/router";
-import { OcorrenciaService } from "./../../../services/ocorrencia.service";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { Location } from "@angular/common";
 import { FormControl, Validators } from "@angular/forms";
-import { DialogComponent } from "../../dialog/dialog.component";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { OcorrenciaFORM } from "src/app/models/OcorrenciaFORM";
+import { OcorrenciaService } from "src/app/services/ocorrencia.service";
 
 @Component({
   selector: "app-ocorrencia-create",
@@ -54,7 +55,7 @@ export class OcorrenciaCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.idAluno, this.ocorrencia).subscribe(
-      (response) => {
+      () => {
         this.toast.success("Ocorrência registrada com sucesso!", "Create");
         this.location.back();
       },

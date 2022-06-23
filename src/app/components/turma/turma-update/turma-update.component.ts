@@ -1,13 +1,14 @@
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { TurmaService } from "src/app/services/turma.service";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { Turma } from "src/app/models/Turma";
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
-import { DialogComponent } from "../../dialog/dialog.component";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Turma } from "src/app/models/Turma";
+import { TurmaService } from "src/app/services/turma.service";
 
 @Component({
   selector: "app-turma-update",

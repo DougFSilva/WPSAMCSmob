@@ -1,10 +1,12 @@
-import { DialogComponent } from "./../../dialog/dialog.component";
+
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 import { Funcionario } from "src/app/models/Funcionario";
 import { FuncionarioService } from "src/app/services/funcionario.service";
 

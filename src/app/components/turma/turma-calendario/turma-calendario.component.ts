@@ -1,15 +1,17 @@
 import { MatDialog } from "@angular/material/dialog";
-import { TurmaService } from "src/app/services/turma.service";
-import { AulaService } from "./../../../services/aula.service";
 import { ToastrService } from "ngx-toastr";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { Location } from "@angular/common";
+import { MatDatepickerInputEvent } from "@angular/material/datepicker";
+
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
+import { Turma } from "src/app/models/Turma";
 import { AulaFORM } from "src/app/models/AulaFORM";
 import { Aula } from "src/app/models/Aula";
-import { MatDatepickerInputEvent } from "@angular/material/datepicker";
-import { Turma } from "src/app/models/Turma";
-import { DialogComponent } from "../../dialog/dialog.component";
+import { TurmaService } from "src/app/services/turma.service";
+import { AulaService } from "src/app/services/aula.service";
+
 
 export class checkDay {
   checkSeg: boolean;
@@ -139,9 +141,8 @@ export class TurmaCalendarioComponent implements OnInit {
     dialog.afterClosed().subscribe((response) => {
       if (response == "true") {
         this.create();
-      } else {
-        return;
       }
+        return;
     });
   }
 
