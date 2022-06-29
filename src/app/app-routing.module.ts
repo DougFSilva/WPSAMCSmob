@@ -1,7 +1,7 @@
 import { EvadidosComponent } from './components/aluno/evadidos/evadidos.component';
 import { HomeComponent } from './components/home/home.component';
 import { CursosComponent } from './components/curso/cursos/cursos.component';
-import { FormandosComponent } from './components/aluno/formandos/formandos.component';
+import { EgressosComponent } from './components/aluno/egressos/egressos..component';
 import { CursoDetalhesComponent } from './components/curso/curso-detalhes/curso-detalhes.component';
 import { CursoUpdateComponent } from './components/curso/curso-update/curso-update.component';
 import { TurmaCalendarioResolver } from './components/turma/turma-calendario/turma-calendario.resolvers';
@@ -145,8 +145,8 @@ const routes: Routes = [
       },
 
       {
-        path: "formandos",
-        component: FormandosComponent,
+        path: "egressos",
+        component: EgressosComponent,
       },
 
       {

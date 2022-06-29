@@ -8,13 +8,13 @@ import { AlunoService } from "src/app/services/aluno.service";
 import { CursoService } from "src/app/services/curso.service";
 
 @Component({
-  selector: "app-formandos",
-  templateUrl: "./formandos.component.html",
-  styleUrls: ["./formandos.component.css"],
+  selector: "app-egressos",
+  templateUrl: "./egressos.component.html",
+  styleUrls: ["./egressos.component.css"],
 })
-export class FormandosComponent implements OnInit {
-  formandos: Aluno[];
-  formandosFilter: Aluno[];
+export class EgressosComponent implements OnInit {
+  egressos: Aluno[];
+  egressosFilter: Aluno[];
   idCursoSelected: number = 0;
   numeroTurmaSelected: number = 0;
   cursos: Curso[] = [];
@@ -39,9 +39,9 @@ export class FormandosComponent implements OnInit {
   }
 
   findAll() {
-    this.service.findAllByStatus("FORMANDO").subscribe(
+    this.service.findAllByStatus("EGRESSO").subscribe(
       (response) => {
-        this.formandos = response;
+        this.egressos = response;
         this.applyFilter();
       },
       (ex) => {
@@ -64,9 +64,9 @@ export class FormandosComponent implements OnInit {
       return;
     }
     this.service
-      .findAllByCurso(this.idCursoSelected, "FORMANDO")
+      .findAllByCurso(this.idCursoSelected, "EGRESSO")
       .subscribe((response) => {
-        this.formandos = response;
+        this.egressos = response;
         this.applyFilter();
       });
   }
@@ -74,9 +74,9 @@ export class FormandosComponent implements OnInit {
   applyFilter() {
     var filterValue = <HTMLInputElement>document.getElementById("filter");
     if (filterValue.value == "") {
-      this.formandosFilter = this.formandos;
+      this.egressosFilter = this.egressos;
     }
-    this.formandosFilter = this.formandos.filter((aluno) => {
+    this.egressosFilter = this.egressos.filter((aluno) => {
       if (this.numeroTurmaSelected == 0 || this.numeroTurmaSelected == null) {
         return aluno.nome
           .toLowerCase()
@@ -88,6 +88,6 @@ export class FormandosComponent implements OnInit {
         );
       }
     });
-    this.totalAlunos = this.formandosFilter.length;
+    this.totalAlunos = this.egressosFilter.length;
   }
 }

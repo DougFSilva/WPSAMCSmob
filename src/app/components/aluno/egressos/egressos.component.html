@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>FORMANDOS</h1>
+  <h1>EGRESSOS</h1>
 
   <div class="filter">
     <mat-form-field class="form-filter" appearance="standard">
@@ -42,23 +42,23 @@
 
   <div class="cards">
     <mat-card
-      *ngFor="let formando of formandosFilter"
+      *ngFor="let egresso of egressosFilter"
       class="card mat-elevation-z8"
     >
       <mat-card-header class="card-header">
-        {{ formando.dataMatricula | date: "dd/MM/yyyy" }}
+        {{ egresso.dataMatricula | date: "dd/MM/yyyy" }}
       </mat-card-header>
       <img
         class="card-img"
-        routerLink="/aluno/{{ formando.id }}"
+        routerLink="/aluno/{{ egresso.id }}"
         mat-card-image
-        *ngIf="formando.matricula"
-        [src]="formando.foto"
-        alt="Foto {{ formando.nome }}"
+        *ngIf="egresso.matricula"
+        [src]="egresso.foto"
+        alt="Foto {{ egresso.nome }}"
       />
       <mat-card-content>
-        <p routerLink="/aluno/{{ formando.id }}">
-          {{ formando.nome }}
+        <p routerLink="/aluno/{{ egresso.id }}">
+          {{ egresso.nome }}
         </p>
       </mat-card-content>
     </mat-card>

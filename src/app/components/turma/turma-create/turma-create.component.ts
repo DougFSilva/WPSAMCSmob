@@ -35,7 +35,7 @@ export class TurmaCreateComponent implements OnInit {
     "NOITE",
     "INTEGRAL",
     "SABADO",
-    "FORMANDO",
+    "EGRESSO",
     "EVADIDO",
   ];
 

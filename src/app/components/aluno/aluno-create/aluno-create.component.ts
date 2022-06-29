@@ -112,7 +112,7 @@ export class AlunoCreateComponent implements OnInit {
       (response) => {
         response.forEach((res) => {
           if (
-            !res.codigo.includes("FORMANDO") &&
+            !res.codigo.includes("EGRESSO") &&
             !res.codigo.includes("EVADIDO")
           ) {
             this.turmas.push(res);

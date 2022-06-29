@@ -43,7 +43,7 @@
             <mat-menu #menu="matMenu">
               <button
                 *ngIf="
-                  turma.codigo != 'FORMANDO' &&
+                  turma.codigo != 'EGRESSO' &&
                   turma.codigo != 'EVADIDO' &&
                   perfilUsuario == 'ADMIN'
                 "
@@ -55,7 +55,7 @@
               </button>
               <button
                 *ngIf="
-                  turma.codigo != 'FORMANDO' &&
+                  turma.codigo != 'EGRESSO' &&
                   turma.codigo != 'EVADIDO' &&
                   perfilUsuario == 'ADMIN'
                 "

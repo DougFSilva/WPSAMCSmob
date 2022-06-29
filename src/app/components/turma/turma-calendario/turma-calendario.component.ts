@@ -123,7 +123,7 @@ export class TurmaCalendarioComponent implements OnInit {
       response.forEach(
         (res) => {
           if (
-            !res.codigo.includes("FORMANDO") &&
+            !res.codigo.includes("EGRESSO") &&
             !res.codigo.includes("DESISTENTE")
           ) {
             this.turmas.push(res);
